@@ -1,0 +1,74 @@
+/* Resetting margin and padding */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+body {
+	background-color: #fff;
+	background-size: 4px 4px;
+	color: #1e1e1e;
+	font-family: 'Instrument Serif', serif;
+	font-weight: 400;
+	padding: 10em;
+}
+
+#title {
+	font-family: 'Almarai', sans-serif;
+	font-weight: 300;
+	z-index: 1;
+	text-align: center;
+}
+
+h2, h3 {
+	font-size: 12px;
+	font-weight: 700;
+}
+
+#title nav {
+	margin-top: 3em;
+}
+
+a {
+	color: #1e1e1e;
+	font-weight: 400;
+	transition: all 0.4s ease-in-out;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #1e1e1e;
+	background-color: greenyellow;
+}
+
+img {
+	max-width: 400px;
+	max-height: 400px;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	gap: 4em;
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		padding: 3em;
+	}
+}
+
+/* General Styles */
+* {
+	margin: 5px 0;
+}
+
+code {
+	font-size: 1.2em;
+	background-color: #262627;
+}

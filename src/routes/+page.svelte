@@ -1,0 +1,85 @@
+<script>
+	const postsModules = import.meta.glob('../posts/*.md', { eager: true });
+
+	const posts = Object.values(postsModules);
+</script>
+
+<div id="container">
+	<div class="about">
+		<p>
+			SPACE RADIO is a radio made by and made for students of the Creative Computing Institute (CCI). 
+			The intention of the radio is to give students a platform to share their work, musings, interests, music, and conversations to
+			expand community within CCI.
+		</p>
+	</div>
+	<section id="radio">
+		<iframe id="player" frameborder="0" width="280" height="216" src="http://localhost:8080/embed/player?stream=auto&title=Now Playing"></iframe>
+	</section>
+	<section>
+		<h2>SCHEDULE</h2>
+		<hr />
+		<!-- Looping through the list of posts with svelte's {#each} syntax ref: https://svelte.dev/tutorial/each-blocks -->
+		<div class="posts">
+			{#each posts as post}
+				<a href={post.metadata.slug}>
+					<div class="post">
+						<h3>
+							{post.metadata.title}
+						</h3>
+						<span>
+							{post.metadata.type}
+						</span>
+						<span>{post.metadata.date}</span>
+					</div>
+				</a>
+			{/each}
+		</div>
+	</section>
+</div>
+
+<!-- All the styling within .svelte files is scoped. Meaning any CSS in this file doesn't effect rest of the files -->
+<style>
+	section {
+		font-family: 'Almarai', sans-serif;
+		font-weight: 400;
+		font-size: 12px;
+	}
+
+	hr {
+		border-top: 1px solid black;
+	}
+
+	h2 {
+		text-align: center;
+	}
+
+	#radio {
+		margin: auto;
+	}
+
+	.about {
+		margin-top: 2em;
+	}
+
+	.posts {
+		display: flex;
+		flex-direction: column;
+		gap: 0em;
+	}
+
+	.post {
+		display: flex;
+		justify-content: space-between;
+		gap: 2em;
+		align-items: center;
+	}
+
+	#container {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		max-width: 50%;
+		margin: auto;
+	}
+
+</style>
