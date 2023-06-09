@@ -4,5 +4,5 @@ export const config = {
 	// Site Description (max 150 characters)
 	description: "A student-run radio for UAL's Creative Computing Institute",
 	// Site URL
-	url: ''
+	url: 'https://space-radio.netlify.app/'
 };
