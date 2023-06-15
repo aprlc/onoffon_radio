@@ -4,7 +4,12 @@
 	const posts = Object.values(postsModules);
 </script>
 
+
 <div id="container">
+	<div id="logo">
+		<img src="src/posts/images/logo.svg" alt="logo"/>
+	</div>
+
 	<div class="about">
 		<p>
 			SPACE Radio is an online radio station made by and for the students of UAL’s Creative Computing Institute (CCI). SPACE Radio aims to empower students to actively participate in creating, holding, exploring, and shaping <i>space</i> within and outside of CCI.
@@ -32,10 +37,19 @@
 
 <!-- All the styling within .svelte files is scoped. Meaning any CSS in this file doesn't effect rest of the files -->
 <style>
+	
 	section {
 		font-family: 'Toren', serif;
 		font-weight: 400;
 		font-size: 14px;
+	}
+
+	#logo {
+		margin: auto;
+		text-emphasis: center;
+	}
+	#logo img {
+		max-width: 140px !important;
 	}
 
 	hr {
@@ -48,10 +62,6 @@
 
 	#radio {
 		margin: auto;
-	}
-
-	.about {
-		margin-top: 2em;
 	}
 
 	.posts {
