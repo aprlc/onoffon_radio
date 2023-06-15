@@ -7,9 +7,8 @@
 <div id="container">
 	<div class="about">
 		<p>
-			SPACE RADIO is a radio made by and made for students of the Creative Computing Institute (CCI). 
-			The intention of the radio is to give students a platform to share their work, musings, interests, music, and conversations to
-			expand community within CCI.
+		SPACE Radio is an online radio station made by and for the students of UAL’s Creative Computing Institute (CCI). 
+		SPACE Radio aims to empower students to actively participate in creating, holding, exploring, and shaping space within and outside of CCI.
 		</p>
 	</div>
 	<section id="radio">
@@ -23,13 +22,10 @@
 			{#each posts as post}
 				<a href={post.metadata.slug}>
 					<div class="post">
-						<h3>
-							{post.metadata.title}
-						</h3>
-						<span>
-							{post.metadata.type}
-						</span>
+						<h3>{post.metadata.title}</h3>
+						<span>{post.metadata.type}</span>
 						<span>{post.metadata.date}</span>
+						<span>{post.metadata.time}</span>
 					</div>
 				</a>
 			{/each}

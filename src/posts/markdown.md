@@ -1,17 +1,11 @@
 ---
-title: Markdown Posts
+title: Welcome to Space Radio
 date: 26-05-2023
+time: 18:00-19:00
 slug: md
-type: installation
+type: show
 ---
 
-<script>
-    const handleAlert = () => {
-        alert("Aha!")
-    }
-    </script>
-
-# Extended Markdown
 
 You can edit this file or add new posts from `src/posts/`
 
