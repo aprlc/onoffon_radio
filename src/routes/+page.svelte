@@ -2,13 +2,13 @@
 	const postsModules = import.meta.glob('../posts/*.md', { eager: true });
 
 	const posts = Object.values(postsModules);
-	import logo from "$src/images/logo.svg"
+	import Logo from '$lib/images/logo.svg';
 </script>
 
 
 <div id="container">
 	<div id="logo">
-		<img src={logo} alt="logo"/>
+		<img src={Logo} alt="logo"/>
 	</div>
 
 	<div class="about">
