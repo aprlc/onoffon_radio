@@ -7,7 +7,7 @@
 
 <div id="container">
 	<div id="logo">
-		<img src="/posts/images/logo.svg" alt="logo"/>
+		<img src="src/images/logo.svg" alt="logo"/>
 	</div>
 
 	<div class="about">
