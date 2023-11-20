@@ -11,24 +11,28 @@
 		<img src={Logo} alt="logo"/>
 	</div>
 
-	<div class="about">
+	<section class="about">
 		<p>
-			SPACE Radio is an online radio station made by and for the students of UAL’s Creative Computing Institute (CCI). SPACE Radio aims to empower students to actively participate in creating, holding, exploring, and shaping <i>space</i> within and outside of CCI.
+			SPACE Radio is an online radio station made by and for the students of UAL’s Creative Computing Institute (CCI). 
 		</p>
-	</div>
-	<section id="radio">
-		<!-- svelte-ignore a11y-missing-attribute -->
-		<iframe id="player" frameborder="0" width="280" height="216" src="http://localhost:8080/embed/player?stream=auto&title=Now Playing"></iframe>
 	</section>
+
+	<section id="radio">
+		<audio controls>
+			<source src="http://192.168.0.34:8000/stream" type="audio/mp3">
+			Your browser does not support the audio tag.
+		 </audio>
+	</section>
+
 	<section>
 		<h2>SCHEDULE</h2>
 		<hr />
 		<div class="posts">
 			{#each posts as post}
 				<div class="post-container">
-					<div class="grid-item"><span class="pp-neue">{post.metadata.date}</span></div>
-					<div class="grid-item"><span class="pp-neue">{post.metadata.time}</span></div>
-					<div class="grid-item"><span class="pp-neue">{post.metadata.title}</span></div>
+					<div class="grid-item">{post.metadata.date}</div>
+					<div class="grid-item">{post.metadata.time}</div>
+					<div class="grid-item">{post.metadata.title}</div>
 					<div class="grid-item">{post.metadata.desc}</div>
 				</div>
 			{/each}
@@ -43,6 +47,7 @@
 		font-family: 'Toren', serif;
 		font-weight: 400;
 		font-size: 14px;
+		padding-bottom: 20px;
 	}
 
 	#logo {
