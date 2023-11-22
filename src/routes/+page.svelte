@@ -21,7 +21,6 @@
 		<audio controls>
 			<!-- <source src="https://192.168.0.34:8000/stream" type="audio/ogg"> -->
 			<source src="http://www.raadiioo.space:8000/stream" type="audio/ogg">
-			<source src="https://www.raadiioo.space:8000/stream" type="audio/ogg">
 			Your browser does not support the audio tag.
 		 </audio>
 	</section>
