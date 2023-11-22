@@ -19,7 +19,7 @@
 
 	<section id="radio">
 		<audio controls>
-			<source src="http://192.168.0.34:8000/stream" type="audio/mp3">
+			<source src="http://192.168.0.34:8000/stream" type="audio/ogg">
 			Your browser does not support the audio tag.
 		 </audio>
 	</section>
