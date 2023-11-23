@@ -18,8 +18,7 @@
 	</section>
 
 	<section id="radio">
-		<audio controls>
-			<!-- <source src="https://192.168.0.34:8000/stream" type="audio/ogg"> -->
+		<audio controls preload="auto">
 			<source src="https://www.raadiioo.space/stream" type="audio/ogg">
 			Your browser does not support the audio tag.
 		 </audio>
