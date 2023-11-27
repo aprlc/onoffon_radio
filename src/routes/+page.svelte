@@ -19,7 +19,7 @@
 
 	<section id="radio">
 		<audio controls preload="auto">
-			<source src="https://www.raadiioo.space/stream" type="audio/mpeg">
+			<source src="https://stream.raadiioo.space/stream" type="audio/mpeg">
 			Your browser does not support the audio tag.
 		 </audio>
 	</section>
