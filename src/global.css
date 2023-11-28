@@ -36,18 +36,18 @@ body {
 	color: #1e1e1e;
 	font-family: 'Toren', serif;
 	font-weight: 400;
-	padding: 10em;
+	padding: 0.5em 1em;
 }
 
 #title {
-	font-family: 'PP Neue Machina', sans-serif;
+	font-family: 'Toren', serif;
 	font-weight: 300;
 	z-index: 1;
 	text-align: center;
 }
 
 h1, h2, h3, h4 {
-	font-family: 'PP Neue Machina', sans-serif;
+	font-family: 'Toren', serif;
 }
 
 h2, h3 {
@@ -98,6 +98,6 @@ nav ul {
 }
 
 code {
-	font-size: 1.2em;
-	background-color: #262627;
+	font-size: 1em;
+	background-color: #b7b7be;
 }

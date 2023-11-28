@@ -14,7 +14,10 @@ const config = {
 	preprocess: [
 		mdsvex({
 			extensions: ['.md', '.svx'],
-			remarkPlugins: [relativeImages]
+			remarkPlugins: [relativeImages],
+			layout: {
+				manual: 'src/routes/manual/manual.svelte'
+			}
 		})
 	],
 	vitePlugin: {

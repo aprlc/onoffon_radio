@@ -4,6 +4,9 @@
 
 	// Importing the global css
 	import '../global.css';
+
+	// Import the navigation
+	import Header from '$lib/components/nav.svelte'
 </script>
 
 <svelte:head>
@@ -11,8 +14,12 @@
 	<meta name="description" content={config.description} />
 </svelte:head>
 
-<div id="title">
-	<h1><a href="/">{config.title}</a></h1>
-</div>
+<header>
+	<Header />
+</header>
 
-<slot />
+<body>
+	<slot />
+</body>
+
+

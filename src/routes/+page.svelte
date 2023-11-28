@@ -1,7 +1,7 @@
 <script>
 	const postsModules = import.meta.glob('../posts/*.md', { eager: true });
-
 	const posts = Object.values(postsModules);
+	
 	import Logo from '$lib/images/logo.svg';
 </script>
 
@@ -13,7 +13,7 @@
 
 	<section class="about">
 		<p>
-			SPACE Radio is an online radio station made by and for the students of UAL’s Creative Computing Institute (CCI). 
+			SPACE Radio is an online radio station. 
 		</p>
 	</section>
 
@@ -38,6 +38,9 @@
 			{/each}
 		</div>
 	</section>
+
+
+
 </div>
 
 <!-- All the styling within .svelte files is scoped. Meaning any CSS in this file doesn't effect rest of the files -->
@@ -75,10 +78,6 @@
 		justify-content: space-between;
 		flex-direction: column;
 		gap: 0em;
-	}
-
-	.pp-neue {
-		font-family: 'PP Neue Machina', sans-serif;
 	}
 
 	.post-container {
