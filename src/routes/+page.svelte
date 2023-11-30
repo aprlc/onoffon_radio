@@ -49,7 +49,6 @@
 	section {
 		font-family: 'Toren', serif;
 		font-weight: 400;
-		font-size: 14px;
 		padding-bottom: 20px;
 	}
 

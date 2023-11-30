@@ -30,4 +30,11 @@
 		text-decoration: none;
 		color: inherit;
 	}
+
+	@media screen and (max-width: 768px) {
+	header {
+		padding: 0rem 0.5rem;
+		margin-bottom: 2em;
+	}
+}
 </style>

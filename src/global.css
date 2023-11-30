@@ -30,6 +30,10 @@
 	font-weight: bold;
 }
 
+* {
+	margin: 5px 0;
+}
+
 body {
 	background-color: #fff;
 	background-size: 4px 4px;
@@ -37,12 +41,12 @@ body {
 	font-family: 'Toren', serif;
 	font-weight: 400;
 	padding: 0.5em 1em;
+	font-size: 14px;
 }
 
 #title {
 	font-family: 'Toren', serif;
 	font-weight: 300;
-	z-index: 1;
 	text-align: center;
 }
 
@@ -51,7 +55,7 @@ h1, h2, h3, h4 {
 }
 
 h2, h3 {
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: normal;
 }
 
@@ -85,19 +89,13 @@ nav ul {
 	display: flex;
 	gap: 4em;
 }
-
-@media screen and (max-width: 768px) {
-	body {
-		padding: 3em;
-	}
-}
-
-/* General Styles */
-* {
-	margin: 5px 0;
-}
-
 code {
 	font-size: 1em;
 	background-color: #b7b7be;
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		padding: 0rem 1rem;
+	}
 }
