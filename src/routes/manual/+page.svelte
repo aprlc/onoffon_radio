@@ -1,7 +1,3 @@
-<script>
-    import pdfUrl from '$lib/radio_manual.pdf';
-</script>
-
 <section>
 	<div class="info">
 		<h1>How to Build a Handmade Radio</h1>
@@ -9,7 +5,7 @@
 		<p>Last updated on 11.30.2023</p>
 	</div>
 	<div>
-		<iframe src={pdfUrl} title="PDF"/>
+		<iframe src="/radio_manual.pdf" title="PDF"/>
 	</div>
 </section>
   
