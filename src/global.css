@@ -9,24 +9,24 @@
 /* Importing fonts */
 @font-face {
 	font-family: Toren;
-	src: url(/fonts/Toren-Mono.otf);
+	src: url(src/fonts/Toren-Mono.otf);
 }
 
 @font-face {
 	font-family: PP Neue Machina;
-	src:url(/fonts/PPNeueMachina-Regular.otf);
+	src:url(src/fonts/PPNeueMachina-Regular.otf);
 	font-weight: normal;
 }
 
 @font-face {
 	font-family: PP Neue Machina;
-	src:url(/fonts/PPNeueMachina-Light.otf);
+	src:url(src/fonts/PPNeueMachina-Light.otf);
 	font-weight: lighter;
 }
 
 @font-face {
 	font-family: PP Neue Machina;
-	src:url(/fonts/PPNeueMachina-Ultrabold.otf);
+	src:url(src/fonts/PPNeueMachina-Ultrabold.otf);
 	font-weight: bold;
 }
 

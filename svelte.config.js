@@ -15,9 +15,6 @@ const config = {
 		mdsvex({
 			extensions: ['.md', '.svx'],
 			remarkPlugins: [relativeImages],
-			layout: {
-				manual: 'src/routes/manual/manual.svelte'
-			}
 		})
 	],
 	vitePlugin: {

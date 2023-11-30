@@ -4,5 +4,5 @@ export const config = {
 	// Site Description (max 150 characters)
 	description: "A handmade radio",
 	// Site URL
-	url: 'raadiioo.space'
+	url: 'radioo.space'
 };
