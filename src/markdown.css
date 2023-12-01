@@ -1,0 +1,113 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2em 0 1em 0 !important;
+}
+
+img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+hr {
+  margin: 3em 0 !important;
+}
+
+blockquote {
+  margin: 1rem 0em;
+  background-color: rgb(237, 237, 237);
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+blockquote.note {
+  background-color: #fee7f0;
+  border-left: none;
+}
+
+blockquote.note h4 {
+  color: #ff0062;
+}
+
+blockquote.note code {
+  background-color: #f1c9d8;
+}
+
+blockquote.success {
+  background-color: #eaefaf;
+  border-left: none;
+}
+
+blockquote.success h4 {
+  color: #746f2b;
+}
+
+blockquote.success code {
+  background-color: #c1be85;
+}
+
+blockquote h4 {
+  margin-bottom: 1em;
+  margin-top: 0 !important;
+}
+
+blockquote p {
+  margin-top: 0;
+}
+
+/* Style for top-level <ul> and <li> */
+ul {
+  list-style-type: circle;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+ol {
+  list-style-type: decimal-leading-zero;
+  padding: 0;
+  margin-left: 2.5rem;
+}
+
+li {
+  margin-bottom: 0.25rem; /* Adjust the spacing between list items */
+}
+
+/* Style for nested <ul> and indented <li> */
+ul ul {
+  margin-left: 1.5rem; /* Adjust the indentation as needed */
+}
+
+/* Style for nested <li> within nested <ul> */
+ul ul li {
+  margin-bottom: 0; /* Remove bottom margin for nested list items */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+}
+
+/* Style for table headers and cells */
+th, td {
+  border-right: 1px solid #ff0062;
+  border-bottom: 1px solid #ff0062;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  color: #ff0062; /* Header background color */
+}
+
+/* Remove border on the last column */
+th:last-child, td:last-child {
+  border-right: none;
+}
+
+/* Remove border on the last row */
+tr:last-child td {
+  border-bottom: none;
+}

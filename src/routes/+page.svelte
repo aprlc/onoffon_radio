@@ -5,7 +5,6 @@
 	import Logo from '$lib/images/logo.svg';
 </script>
 
-
 <div id="container">
 	<div id="logo">
 		<img src={Logo} alt="logo"/>
@@ -25,7 +24,7 @@
 	</section>
 
 	<section>
-		<h2>SCHEDULE</h2>
+		<h4>Schedule</h4>
 		<hr />
 		<div class="posts">
 			{#each posts as post}
@@ -39,13 +38,10 @@
 		</div>
 	</section>
 
-
-
 </div>
 
 <!-- All the styling within .svelte files is scoped. Meaning any CSS in this file doesn't effect rest of the files -->
 <style>
-	
 	section {
 		font-family: 'Toren', serif;
 		font-weight: 400;
@@ -64,7 +60,7 @@
 		border-top: 1px solid black;
 	}
 
-	h2 {
+	h4 {
 		text-align: center;
 	}
 
@@ -102,6 +98,4 @@
 			width: 100%;
 		}
 	}
-
-
 </style>

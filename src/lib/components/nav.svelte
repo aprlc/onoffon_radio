@@ -4,7 +4,7 @@
 	<nav>
 		<ul>
 			<li>
-				<a href="/manual">Manual</a>
+				<a href="/manual" data-sveltekit-preload-data="off">Manual</a>
 			</li>
 		</ul>
 	</nav>

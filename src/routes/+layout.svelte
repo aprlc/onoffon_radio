@@ -18,8 +18,6 @@
 	<Header />
 </header>
 
-<body>
-	<slot />
-</body>
+<slot />
 
 
