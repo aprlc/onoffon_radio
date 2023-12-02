@@ -35,6 +35,7 @@
       color: #ff0062;
       background-color: #fee7f0;
       font-family: "Toren", serif;
+      max-width: 20%;
     }
   
     .back-to-top.hidden {
@@ -42,7 +43,7 @@
       visibility: hidden;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
         .back-to-top {
             right: 2rem;
         }
