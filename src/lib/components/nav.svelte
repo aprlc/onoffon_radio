@@ -42,7 +42,7 @@
 		color: inherit;
 	}
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 780px) {
 		header {
 			background-color: #fff;
 			padding: 0.5rem 0;
