@@ -1,11 +1,37 @@
+<script>
+	import { onMount } from 'svelte';
+
+  let showToc = false; // Initial state, set to true if you want the table of contents to be initially visible
+
+  onMount(() => {
+    // Optional: Hide the TOC on page load based on the initial state
+    const toc = document.getElementById('toc');
+    if (toc) {
+      toc.style.display = showToc ? 'block' : 'none';
+    }
+  });
+
+  function toggleToc() {
+    showToc = !showToc;
+    const toc = document.getElementById('toc');
+    if (toc) {
+      toc.style.display = showToc ? 'block' : 'none';
+    }
+  }
+</script>
+
 # How to Build a Handmade Radio: A Manual
 
-𞠕 April Chu <br>
+⚘ April Chu <br>
 𞠕 Last updated on 11.30.2023
 
 ---
 
-#### Table of Contents
+<section id="toc-container">
+
+<button on:click={toggleToc}>Table of Contents</button>
+
+<div id="toc">
 
 1. [Setting Intentions](#setting-intentions)
 2. [Network Overview](#network-overview)
@@ -18,13 +44,17 @@
    - [Optional: Set up SSH](#optional-set-up-ssh)
 5. [Configuring the Public Radio](#configuring-the-public-radio)
    - [Set Up Port Forwarding](#set-up-port-forwarding)
-   - [Set up Dynamic DNS (DDNS)](#set-up-dynamic-dns-ddns)
+   - [Set up Dynamic DNS (DDNS)](#set-up-dynamic-dns)
    - [Update Firewall Settings](#update-firewall-settings)
    - [Optional: Use a Custom Domain](#optional-use-a-custom-domain)
    - [Optional: Set Up SSL](#optional-set-up-ssl)
 6. [Glossary](#glossary)
 
----
+</div>
+
+</section>
+
+<section id="setting-intentions">
 
 ## Setting Intentions
 
@@ -38,11 +68,17 @@ Instead, this guide is an invitation to build your own "home-cooked" radio. This
 
 This guide aims to serve as a resource to those seeking to participate as collaborators, and not mere consumers, in our increasingly technical world. This guide aligns with notions of liberating technological creation from industrial hands. I hope that the act of creating handmade platforms built by and for us, we can begin to re-enchant our digital realms. Even more so, I hope that you will begin to engage with new feelings of _independence_, _security_, and _sovereignty_.
 
+</section>
+
 ---
+
+<section id="network-overview">
 
 ## Network Overview
 
 Before we begin building the radio, let's take a step back and look at ① the parts of a network and ② the Internet radio toolchain.
+
+<div id="the-network">
 
 ### The Network
 
@@ -83,6 +119,10 @@ Beyond the automatic processes handled by the networking equipment, there are ad
 - **Firewalls**: Firewalls on both the router the Pi need to be configured to permit incoming connections on the required ports for the specific services.
 - **SSL Encryption**: The website hosted on the Pi needs to implement SSL encryption to secure communications.
 
+</div>
+
+<div id="the-internet-radio-toolchain">
+
 ### The Internet Radio Toolchain
 
 Online radio is usually composed of three parts:
@@ -95,28 +135,33 @@ For this project, Broadcast Using This Tool (BUTT) is the _stream generator_. It
 
 Additionally, we will be using a virtual audio cable to connect output from VLC to BUTT. This will allow us to stream pre-recorded media as well as broadcast live input at the some time.
 
+</div>
+</section>
+
 ---
+
+<section id="materials">
 
 ## Materials
 
-### Hardware:
+### Hardware
 
 You will need a Raspberry Pi and peripherals to interact with the computer:
 
 - A Raspberry Pi
-	- This is your computer and server. I am using a Raspberry Pi 4 Model B. Any Raspberry Pi model with Wi-Fi capabilities will work for this project.
+  - This is your computer and server. I am using a Raspberry Pi 4 Model B. Any Raspberry Pi model with Wi-Fi capabilities will work for this project.
 - A keyboard
 - A mouse
 - A display monitor
 - An HDMI to micro HDMI cable
 - A 15W USB-C power supply (for the Pi)
-	- The official [Raspberry Pi USB-C Power Supply](https://www.raspberrypi.com/products/type-c-power-supply/).
+  - The official [Raspberry Pi USB-C Power Supply](https://www.raspberrypi.com/products/type-c-power-supply/).
 - A Micro SD card with Raspberry Pi OS installed
-	- You can buy a pre-loaded SD card along with your Raspberry Pi, or you can install it the Raspberry Pi OS using [Raspberry Pi imager](https://www.raspberrypi.com/software/).
+  - You can buy a pre-loaded SD card along with your Raspberry Pi, or you can install it the Raspberry Pi OS using [Raspberry Pi imager](https://www.raspberrypi.com/software/).
 
 I have not included any audio equipment. For the purposes of testing out your radio, having a computer with a microphone and speakers is sufficient. You can get additional equipment for the Pi if you want to broadcast from the Pi.
 
-### Software:
+### Software
 
 This guide prioritizes open source software. The following software are available to download and use for free:
 
@@ -126,7 +171,11 @@ This guide prioritizes open source software. The following software are availabl
 - [VLC](https://www.videolan.org/) (Multimedia Player)
 - [VB-Cable](https://vb-audio.com/Cable/) (Virtual Audio Cable)
 
+</section>
+
 ---
+
+<section id="building-a-local-radio">
 
 ## Building a Local Radio
 
@@ -143,6 +192,8 @@ The [Raspberry Pi website has great documentation](https://www.raspberrypi.com/d
 	<li><code>nano</code>: Opens up a lightweight text editor within the terminal.
 	</ul>
 </blockquote>
+
+<div id="set-up-the-online-radio-toolchain">
 
 ### Set up the Online Radio Toolchain
 
@@ -191,9 +242,8 @@ The [Raspberry Pi website has great documentation](https://www.raspberrypi.com/d
      systemctl status icecast2
      ```
    - Now that we have a web server and Icecast installed, we can access the Icecast stream interface at port 8000 of your Pi. Go to `http://192.168.0.34:8000/` (use the IP address of your Pi) to see the status page of your stream. There will be nothing under "Server Status" because you have not started a stream yet. We have to install BUTT or a stream generator software to begin broadcasting.
-     <!-- ![[Screenshot 2023-11-24 at 2.02.18 PM.png|400]] -->
-	 ![Icecast Status Page](/manual_images/Screenshot%202023-11-24%20at%202.02.18%20PM.png)
-
+      <!-- ![[Screenshot 2023-11-24 at 2.02.18 PM.png|400]] -->
+     ![Icecast Status Page](/manual_images/Screenshot%202023-11-24%20at%202.02.18%20PM.png)
 
 3. Download and configure BUTT, the stream generator.
 
@@ -217,8 +267,9 @@ The [Raspberry Pi website has great documentation](https://www.raspberrypi.com/d
      butt
      ```
    - Go to `Settings` > `Main` > `Server Settings` > `Add` to add a server and link your BUTT broadcast to your Icecast2 stream.
-     <!-- ![Screenshot 2023-11-24 at 2.05.43 PM.png] -->
-	 ![BUTT Settings](manual_images/Screenshot%202023-11-24%20at%202.05.43%20PM.png)
+      <!-- ![Screenshot 2023-11-24 at 2.05.43 PM.png] -->
+
+     ![BUTT Settings](manual_images/Screenshot%202023-11-24%20at%202.05.43%20PM.png)
 
      - **Name**: the name of your radio
      - **Address**: `localhost` or the IP address of your Pi
@@ -226,6 +277,7 @@ The [Raspberry Pi website has great documentation](https://www.raspberrypi.com/d
      - **Password**: from `<source-password>`
      - **Icecast mountpoint**: `stream`
      - **Icecast user**: `source`
+
    - Hit the Play button on BUTT to begin the stream
      - Visit the stream at `http://localhost:8000/stream` or replace `localhost` with the IP address of your Pi
      - If you are not hearing anything on `http://localhost:8000/stream`, make sure you have configured the input device on BUTT. Click on `Settings`, go to the `Audio` tab, and choose a device under `Primary Audio Device`.
@@ -237,16 +289,21 @@ We now have a working local radio. Now you should be able to hear your broadcast
 </p> 
 </blockquote>
 
+</div>
+
+<div id="optional-stream-vlc-to-butt">
+
 ### Optional: Stream VLC to BUTT
 
 If you want to stream pre-recorded media, like a playlist, you should connect VLC to BUTT with a virtual audio cable (VAC).
 
 1. Download VLC from the [website](https://www.videolan.org/). Make sure to choose the appropriate package for your operating system.
 2. Download VB-Cable VAC from the [website](https://vb-audio.com/Cable/). This is currently only available on Windows and MacOS. For Linux, try [Jack Audio Connection Kit (JACK)](https://jackaudio.org/).
+
    - Open the VB-Cable application and change `Latency` to `7168 smp`. This will help synchronize the audio from VLC to the Icecast stream so we can hear the media from VLC on the stream.
      <!-- ![[Screenshot 2023-11-25 at 2.31.16 AM.png|400]] -->
 
-	![VB-Cable application](manual_images/Screenshot%202023-11-25%20at%202.31.16%20AM.png)
+   ![VB-Cable application](manual_images/Screenshot%202023-11-25%20at%202.31.16%20AM.png)
 
 3. Open VLC and upload some media to the `Playlist`. Go to `Audio` > `Audio Device` and choose `VB-Cable` or the name of the VAC you are using. This will output the media from VLC to the VAC.
 4. Open BUTT and go to `Settings` > `Audio` to change the input devices.
@@ -254,9 +311,11 @@ If you want to stream pre-recorded media, like a playlist, you should connect VL
 5. Verify the media is streaming from VLC
    - Start you broadcast from BUTT and go to the link of your stream at `http://localhost:8000/stream`. You should be able to hear the media from VLC.
    - You can also view the input and output levels on the VB-Cable dashboard. It should be working fine as long as the numbers are constantly changing.
-     <!-- ![[Screenshot 2023-11-25 at 2.40.06 AM.png]] -->
-	 ![VB-Cable input and ouput levels](manual_images/Screenshot%202023-11-25%20at%202.40.06%20AM.png)
+      <!-- ![[Screenshot 2023-11-25 at 2.40.06 AM.png]] -->
+     ![VB-Cable input and ouput levels](manual_images/Screenshot%202023-11-25%20at%202.40.06%20AM.png)
 
+</div>
+<div id="optional-set-up-ssh">
 
 ### Optional: Set up SSH
 
@@ -273,23 +332,30 @@ Follow <a href="https://www.howtogeek.com/768053/how-to-ssh-into-your-raspberry-
    passwd
    ```
 2. Enable SSH
+
    - Option 01: Enable SSH through the Pi desktop
      - Go to `Preferences` > `Raspberry Pi Configuration`
      - Go to the `Interfaces` tab and toggle on `SSH`
    - Option 02: Enable SSH from the terminal
+
      - Open configuration panel from the terminal.
+
      ```
      sudo raspi-config
      ```
+
      - Select `Interface Options`
-       <!-- ![[Screenshot 2023-11-24 at 1.31.41 PM.png|400]] -->
-	   ![Raspberry Pi OS Interface Options menu](manual_images/Screenshot%202023-11-24%20at%201.31.41%20PM.png)
+        <!-- ![[Screenshot 2023-11-24 at 1.31.41 PM.png|400]] -->
+
+       ![Raspberry Pi OS Interface Options menu](manual_images/Screenshot%202023-11-24%20at%201.31.41%20PM.png)
 
      - Select `SSH`. Then choose `Yes` when asked to enable SSH. Hit `Enter` on the confirmation box.
-       <!-- ![[Screenshot 2023-11-24 at 1.32.30 PM.png|400]] -->
-	   ![Raspberry Pi OS SSH menu](manual_images/Screenshot%202023-11-24%20at%201.32.30%20PM.png)
+        <!-- ![[Screenshot 2023-11-24 at 1.32.30 PM.png|400]] -->
+
+       ![Raspberry Pi OS SSH menu](manual_images/Screenshot%202023-11-24%20at%201.32.30%20PM.png)
 
      - Make sure you select `Finish` at the end
+
 3. Check if SSH is running. If not, start the SSH service.
 
    ```
@@ -333,11 +399,18 @@ Follow <a href="https://www.howtogeek.com/768053/how-to-ssh-into-your-raspberry-
    exit
    ```
 
+</div>
+</section>
+
 ---
+
+<section id="configuring-the-public-radio">
 
 ## Configuring the Public Radio
 
 Once your radio is working locally, we can set up port forwarding and dynamic DNS to make sure your radio is available publicly.
+
+<div id="set-up-port-forwarding">
 
 ### Set Up Port Forwarding
 
@@ -365,13 +438,16 @@ If your Raspberry Pi is connected to a router, you'll need to set up port forwar
 2. To verify that your ports are set up correctly, go to an [online port check tool](https://www.yougetsignal.com/tools/open-ports/).
    - Enter your router's public IP address and the port you forwarded and see if it's connected. You can find your router's public IP address by through an [online IP address checker](https://www.whatismyip.com/).
 
+</div>
+<div id="set-up-dynamic-dns">
+
 ### Set up Dynamic DNS (DDNS)
 
 The public IP address assigned to your router is often dynamic, meaning it can change periodically due to actions by your Internet Service Provider (ISP) or when you switch networks. By configuring a Dynamic DNS, you can associate a domain name with your router's changing public IP address. This makes it easier to maintain the access to your stream.
 
 I provide steps to register with two free DDNS providers, No-IP and DuckDNS. No-IP requires you to manually confirm that the hostname is in use every 30 days while DuckDNS does not require any verification. I found that I ran into more issues with network security using a DuckDNS hostname which is why I switched over to No-IP.
 
-#### OPtion 01 - No-ip
+#### Option 01 - No-ip
 
 <blockquote class="note">
 <p> No-IP will send you and email every 30 days to confirm that the hostname is still in use. If you do not confirm the hostname is active, your hostname will be deleted.</p>
@@ -413,15 +489,18 @@ I provide steps to register with two free DDNS providers, No-IP and DuckDNS. No-
 
 3. Verify DDNS by entering the domain you just set up (ex `http://radio.ddns.net`) into a web browser. You should see the same web page as when you use your router's public IP.
 
-#### option 02 - Duck DNS
+#### Option 02 - Duck DNS
 
 1. Register with Duck DNS
+
    - Create an account on [Duck DNS](https://www.duckdns.org/)or sign in with an existing account.
    - Once you are logged in, you will see the section to add a domain. Choose a subdomain name and click `Add Domain`.
-     <!-- ![[Capture-2023-11-24-175259.png|500]] -->
-	 ![DuckDNS add domain section](manual_images/Capture-2023-11-24-175259.png)
+      <!-- ![[Capture-2023-11-24-175259.png|500]] -->
+
+     ![DuckDNS add domain section](manual_images/Capture-2023-11-24-175259.png)
 
    - You should your router's public IP address automatically filled next the domain name. You can find your router's public IP address by through an [online IP address checker](https://www.whatismyip.com/).
+
 2. Configure DDNS with the Raspberry Pi
 
    <blockquote class="note">
@@ -447,8 +526,9 @@ I provide steps to register with two free DDNS providers, No-IP and DuckDNS. No-
 
      - Replace `YOUR_DOMAIN` with the DuckDNS subdomain associated with your Pi (ex `http://radio.duckdns.org`).
      - Replace `YOUR_TOKEN` with the token provided on your DuckDNS account page.
-       <!-- ![[Screenshot 2023-11-24 at 6.10.26 PM.png]] -->
-	   ![Duck DNS token](manual_images/Screenshot%202023-11-24%20at%206.10.26%20PM.png)
+        <!-- ![[Screenshot 2023-11-24 at 6.10.26 PM.png]] -->
+
+       ![Duck DNS token](manual_images/Screenshot%202023-11-24%20at%206.10.26%20PM.png)
 
      - The API will detect the IP address automatically so there is no need to enter an IP address.
 
@@ -476,6 +556,10 @@ I provide steps to register with two free DDNS providers, No-IP and DuckDNS. No-
      ```
 
 3. Verify DDNS by entering the domain you just set up (ex `http://radio.duckdns.org`) into a web browser. You should see the same web page as when you use your router's public IP.
+
+</div>
+
+<div id="update-firewall-settings">
 
 ### Update Firewall Settings
 
@@ -514,12 +598,16 @@ A firewall is a security system that enhances the security of the Pi by regulati
    sudo iptables -L
    ```
 
+</div>
+
 <blockquote class="success">
 <h4>We're public!</h4>
 <p>
 From a device outside of the local network that your Pi is connected to, you can access your stream from  <code>http://public-ip:8000/stream</code>  (replace <code>public-ip</code> with your router's Public IP address) or <code>http://radio.ddns.org:8000/stream</code>. Make sure you are streaming from BUTT or there will be an 404 error.
 </p>
 </blockquote>
+
+<div id="optional-use-a-custom-domain">
 
 ### Optional: Use a Custom Domain
 
@@ -554,13 +642,14 @@ One workaround is to buy a custom domain and connect the DDNS hostname to the do
             - **Host**: `stream`
             - **Value**: `127.0.0.1`\*
 
-			<blockquote class="note">
-			<p>
-			You can use any IP address for <code>Value</code>. Once the DDNS client is configured, the IP address will be automatically updated. 
-			</p>
-			</blockquote>
+       <blockquote class="note">
+       <p>
+       You can use any IP address for <code>Value</code>. Once the DDNS client is configured, the IP address will be automatically updated. 
+       </p>
+       </blockquote>
 
 3. [Configure DDNS](https://gist.github.com/PhilMurwin/22ac3674825daa8e22f265178d69c084) on Raspberry Pi
+
    - Like we did above when we set up DDNS, we have to configure a client to update the A record on Namecheap to correct the public IP address.
    - From the Pi's terminal or via SSH, update packages and install `ddclient`:
      ```
@@ -592,16 +681,18 @@ One workaround is to buy a custom domain and connect the DDNS hostname to the do
      ```
      sudo systemctl start ddclient.service
      ```
+
 4. Update Icecast configuration
 
    - We have to update the Icecast configuration with the new hostname
    - Before making changes, create a backup of the Icecast configuration file
-     ```
-		# Navigate to configuration file directory
-		cd /etc/icecast2/
 
-		# Create a backup of the configuration file
-		sudo cp icecast.xml icecast.xml.bak
+     ```
+     # Navigate to configuration file directory
+     cd /etc/icecast2/
+
+     # Create a backup of the configuration file
+     sudo cp icecast.xml icecast.xml.bak
      ```
 
    - Open the configuration file using `nano`:
@@ -625,11 +716,15 @@ One workaround is to buy a custom domain and connect the DDNS hostname to the do
    - Update `Address` with your domain (or subdomain). Hit `Save`.
    - Hit play to start streaming. If everything is set up correctly, the BUTT log should say "Connection Established" and you should be able to access your stream at `your-domain.com/stream` or `stream.your-domain.com/stream`.
 
+</div>
+
+<div id="optional-set-up-ssl">
+
 ### Optional: Set Up SSL
 
 Now that you have a domain, it's a good idea to set up SSL. When your site has a HTTPS padlock, it enhances security, ensures encryption, and reduces the likelihood of browsers blocking it.
 
-#### obtain a certificate
+#### Obtain a certificate
 
 1. Install Cerbot, a client for Let's Encrypt and a free Certificate Authority. From the terminal, run:
 
@@ -666,7 +761,7 @@ Now that you have a domain, it's a good idea to set up SSL. When your site has a
      0 */12 * * * certbot renew
      ```
 
-#### update icecast
+#### Update icecast
 
 1. Open the Icecast configuration file:
    ```
@@ -674,11 +769,11 @@ Now that you have a domain, it's a good idea to set up SSL. When your site has a
    ```
 2. At the bottom of the file, add your SSL certificate details
    ```
-	<!-- Enable SSL -->
-	<ssl>1</ssl>
-	<ssl-certificate>/etc/letsencrypt/live/[your-domain.com]/fullchain.pem<ssl-certificate>
-	<ssl-private-key>/etc/letsencrypt/live/[your-domain.com]/privkey.pem<ssl-private-key>
-	<port>443</port>
+   <!-- Enable SSL -->
+   <ssl>1</ssl>
+   <ssl-certificate>/etc/letsencrypt/live/[your-domain.com]/fullchain.pem<ssl-certificate>
+   <ssl-private-key>/etc/letsencrypt/live/[your-domain.com]/privkey.pem<ssl-private-key>
+   <port>443</port>
    ```
    - Replace `[your-domain.com]` for both the `<ssl-certificate>` and `<ssl-private-key>` with the your actual domain.
 3. Exit (`CTRL + X`) and save the changes (`Y`)
@@ -688,7 +783,12 @@ Now that you have a domain, it's a good idea to set up SSL. When your site has a
    ```
 5. You can check your SSL with an [online SSL tester](https://www.ssllabs.com/ssltest/).
 
+</div>
+</section>
+
 ---
+
+<section id="glossary">
 
 ## Glossary
 
@@ -779,3 +879,5 @@ Web Server
 Virtual Audio Cable (VAC)
 
 - Software that allows you to route audio signals between different applications or devices on your computer virtually.
+
+</section>

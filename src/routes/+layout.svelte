@@ -14,9 +14,8 @@
 	<meta name="description" content={config.description} />
 </svelte:head>
 
-<header>
-	<Header />
-</header>
+<Header />
+
 
 <slot />
 

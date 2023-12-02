@@ -1,5 +1,5 @@
 <header>
-	<a href="/">Home</a>
+	<a href="/" data-sveltekit-preload-data="hover">Home</a>
 
 	<nav>
 		<ul>
@@ -12,9 +12,13 @@
 
 <style lang="scss">
 	header {
-		padding: 1rem;
+		//padding: 0rem 1rem 1rem 1rem;
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
+		z-index: 1000;
+		position: fixed;
+		width: 90%;
 		justify-content: space-between;
 		align-items: center;
 	}

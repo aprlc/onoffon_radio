@@ -10,7 +10,7 @@ const Nav = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `<header class="svelte-pq0aax"><a href="/" class="svelte-pq0aax">Home</a>
 
-	<nav><ul class="svelte-pq0aax"><li><a href="/manual" class="svelte-pq0aax">Manual</a></li></ul></nav>
+	<nav><ul class="svelte-pq0aax"><li><a href="/manual" data-sveltekit-preload-data="off" class="svelte-pq0aax">Manual</a></li></ul></nav>
 </header>`;
 });
 const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -18,7 +18,7 @@ const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 
 <header>${validate_component(Nav, "Header").$$render($$result, {}, {}, {})}</header>
 
-<body>${slots.default ? slots.default({}) : ``}</body>`;
+${slots.default ? slots.default({}) : ``}`;
 });
 export {
   Layout as default
