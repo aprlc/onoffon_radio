@@ -39,9 +39,7 @@
 					<div class="grid-item">{post.metadata.date}</div>
 					<div class="grid-item">{post.metadata.time}</div>
 					<div class="grid-item">{post.metadata.title}</div>
-<div class="grid-item">
-            {post.metadata.type} ✶ {post.metadata.location}
-          </div>
+					<div class="grid-item">{post.metadata.type} ✶ {post.metadata.location}</div>
 					<div class="grid-item">{post.metadata.desc}</div>
 				</div>
 			{/each}
@@ -92,10 +90,10 @@
 		margin: auto;
 	}
 
-  .audio-player {
-    max-width: 300px;
-    margin: 1rem;
-  }
+	.audio-player {
+		max-width: 300px;
+		margin: 1rem;
+	}
 
 	.posts {
 		display: flex;
@@ -106,42 +104,72 @@
 
 	.post-container {
 		display: grid;
-  		grid-template-columns: 1fr 1fr 2fr;
-  		grid-template-rows: auto auto auto;
-		border-top: black 1px solid;
+		grid-template-columns: 1fr 1fr 2fr;
+		grid-template-rows: auto auto auto;
+		border-top: #1e1e1e 1px solid;
 		overflow-y: scroll;
 	}
 
-  /* first grid item */
-  .post-container > :nth-child(1) {
-    border-left: 1px solid #000;
-  }
+	/* first grid item */
+	.post-container > :nth-child(1) {
+		border-left: 1px solid #1e1e1e;
+	}
 
-  /* first 3 grid items (show details) */
-  .post-container > :nth-child(-n + 3) {
-    border-right: 1px solid #000;
-  }
+	/* first 3 grid items (show details) */
+	.post-container > :nth-child(-n + 3) {
+		border-right: 1px solid #1e1e1e;
+	}
 
-  /* last grid item (description) */
-  .post-container > :nth-child(4) {
-    grid-row: 2;
-    grid-column: 2 / span 2;
-    font-size: 0.8rem;
-  }
+	/* last grid item (description) */
+	.post-container > :nth-child(4) {
+		grid-row: 2;
+		grid-column: 2 / span 2;
+		font-size: 0.8rem;
+	}
 
-  /* last grid item (description) */
-  .post-container .grid-item:last-child {
-    grid-row: 3;
-    grid-column: 2 / span 2;
+	/* last grid item (description) */
+	.post-container .grid-item:last-child {
+		grid-row: 3;
+		grid-column: 2 / span 2;
 	}
 
 	.grid-item {
-  		padding: 1rem;
+		padding: 1rem;
 	}
 
 	@media (max-width: 780px) {
 		#container {
 			width: 100%;
+		}
+
+		.post-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto auto auto auto;
+		}
+		
+		/* first 3 grid items (show details) */
+		.post-container > :nth-child(-n + 3) {
+			border-bottom: 1px solid #1e1e1e;
+		}
+
+		/* third grid item */
+		.post-container > :nth-child(3) {
+			grid-row: 2;
+			grid-column: 1 / span 2;
+			border-left: 1px solid #1e1e1e;
+		}
+
+		/* fourth grid item */
+		.post-container > :nth-child(4) {
+			grid-row: 3;
+			grid-column: 1 / span 2;
+		}
+
+		/* fourth grid item */
+		.post-container .grid-item:last-child {
+			grid-row: 4;
+			grid-column: 1 / span 2;
 		}
 
 	}
