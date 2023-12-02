@@ -52,5 +52,5 @@
   
   <svelte:window on:scroll={handleOnScroll} />
   
-  <div class="back-to-top" on:click={goTop} class:hidden>(↑ top)</div>
+  <div class="back-to-top" on:click={goTop} class:hidden>(↑)</div>
   
