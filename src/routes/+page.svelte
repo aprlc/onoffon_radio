@@ -93,8 +93,8 @@
 	}
 
   .audio-player {
-    width: 300px;
-    margin: 20px;
+    max-width: 300px;
+    margin: 1rem;
   }
 
 	.posts {
