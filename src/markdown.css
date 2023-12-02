@@ -160,6 +160,7 @@ tr:last-child td {
   margin-top: 0;
   border: none;
   text-align: center;
+  color:#1e1e1e;
 }
 
 #toc-container button:hover{
