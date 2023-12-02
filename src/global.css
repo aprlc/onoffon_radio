@@ -165,5 +165,6 @@ button a {
   body {
     min-width: fit-content;
     padding: 0rem 2rem;
+    font-size: 1rem;
   }
 }
