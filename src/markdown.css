@@ -167,6 +167,10 @@ tr:last-child td {
   background-color: #fee7f0;
 }
 
+section, div {
+  scroll-margin-block: 3rem;
+}
+
 @media screen and (max-width: 780px) {
   #toc-container {
     left: 1rem;
@@ -180,5 +184,9 @@ tr:last-child td {
 
   #toc-container button {
     font-size: 1rem;
+  }
+
+  section, div {
+    scroll-margin-block: 4rem;
   }
 }

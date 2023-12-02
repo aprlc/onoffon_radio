@@ -45,7 +45,7 @@
 
     @media screen and (max-width: 780px) {
         .back-to-top {
-            right: 2rem;
+            right: 1rem;
         }
     }
   </style>
