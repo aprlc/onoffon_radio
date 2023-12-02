@@ -34,6 +34,7 @@
       bottom: 1rem;
       color: #ff0062;
       background-color: #fee7f0;
+      font-family: "Toren", serif;
     }
   
     .back-to-top.hidden {

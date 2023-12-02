@@ -1,24 +1,31 @@
 <header>
-	<a href="/" data-sveltekit-preload-data="hover">Home</a>
+	<div class="container">
+		<a href="/" data-sveltekit-preload-data="hover">Home</a>
 
-	<nav>
-		<ul>
-			<li>
-				<a href="/manual" data-sveltekit-preload-data="off">Manual</a>
-			</li>
-		</ul>
-	</nav>
+		<nav>
+			<ul>
+				<li>
+					<a href="/manual" data-sveltekit-preload-data="off">Manual</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
 </header>
 
-<style lang="scss">
-	header {
-		//padding: 0rem 1rem 1rem 1rem;
+<style>
+	header{
+		position: sticky; 
+		top: 0;
+		padding: 1rem 2rem;
+	}
+
+	.container {
+		font-family: "Toren", serif;
 		display: flex;
 		flex-wrap: wrap;
-		align-items: center;
 		z-index: 1000;
-		position: fixed;
-		width: 90%;
+		width: 100%;
 		justify-content: space-between;
 		align-items: center;
 	}
@@ -36,9 +43,10 @@
 	}
 
 	@media screen and (max-width: 768px) {
-	header {
-		padding: 0rem 0.5rem;
-		margin-bottom: 2em;
+		header {
+			background-color: #fff;
+			padding: 0.5rem 0;
+		}
+
 	}
-}
 </style>

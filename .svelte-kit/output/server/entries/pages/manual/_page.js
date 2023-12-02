@@ -2,11 +2,11 @@ import { c as create_ssr_component } from "../../../chunks/index2.js";
 import { e as error } from "../../../chunks/index.js";
 const Manual = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `<h1>How to Build a Handmade Radio: A Manual</h1>
-<p>𞠕 April Chu <br>
+<p>⚘ April Chu <br>
 𞠕 Last updated on 11.30.2023</p>
 <hr>
-<h4>Table of Contents</h4>
-<ol><li><a href="#setting-intentions">Setting Intentions</a></li>
+<section id="toc-container"><button>Table of Contents</button>
+<div id="toc"><ol><li><a href="#setting-intentions">Setting Intentions</a></li>
 <li><a href="#network-overview">Network Overview</a><ul><li><a href="#the-network">The Network</a></li>
 <li><a href="#the-internet-radio-toolchain">The Internet Radio Toolchain</a></li></ul></li>
 <li><a href="#materials">Materials</a></li>
@@ -14,24 +14,23 @@ const Manual = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 <li><a href="#optional-stream-vlc-to-butt">Optional: Stream VLC to BUTT</a></li>
 <li><a href="#optional-set-up-ssh">Optional: Set up SSH</a></li></ul></li>
 <li><a href="#configuring-the-public-radio">Configuring the Public Radio</a><ul><li><a href="#set-up-port-forwarding">Set Up Port Forwarding</a></li>
-<li><a href="#set-up-dynamic-dns-ddns">Set up Dynamic DNS (DDNS)</a></li>
+<li><a href="#set-up-dynamic-dns">Set up Dynamic DNS (DDNS)</a></li>
 <li><a href="#update-firewall-settings">Update Firewall Settings</a></li>
 <li><a href="#optional-use-a-custom-domain">Optional: Use a Custom Domain</a></li>
 <li><a href="#optional-set-up-ssl">Optional: Set Up SSL</a></li></ul></li>
-<li><a href="#glossary">Glossary</a></li></ol>
-<hr>
-<h2>Setting Intentions</h2>
+<li><a href="#glossary">Glossary</a></li></ol></div></section>
+<section id="setting-intentions"><h2>Setting Intentions</h2>
 <blockquote><p>When you liberate programming from the requirement to be professional and scalable, it becomes a different activity altogether, just as cooking at home is really nothing like cooking in a commercial kitchen. I can report to you: not only is this different activity rewarding in almost exactly the same way that cooking for someone you love is rewarding, there’s another feeling, too, specific to this realm…What is this feeling? Independence? Security? Sovereignty?</p>
 <br>
 𞠕 Robin Sloan, An App Can Be A Home-cooked Meal
 </blockquote>
 <p>This manual is not a technical tutorial to building a reliable and scalable online radio. It is not intended to be an authoritative or exhaustive reference.</p>
 <p>Instead, this guide is an invitation to build your own “home-cooked” radio. This manual will walk through how to assemble free and open source software on a Raspberry Pi to stream audio online. It covers the construction of a radio within a local network and offers steps to make it public (if and when you choose to do so). It is for those who have no experience with servers and the command line, for people who have even the slightest interest in building or understanding networks and infrastructure.</p>
-<p>This guide aims to serve as a resource to those seeking to participate as collaborators, and not mere consumers, in our increasingly technical world. This guide aligns with notions of liberating technological creation from industrial hands. I hope that the act of creating handmade platforms built by and for us, we can begin to re-enchant our digital realms. Even more so, I hope that you will begin to engage with new feelings of <em>independence</em>, <em>security</em>, and <em>sovereignty</em>.</p>
+<p>This guide aims to serve as a resource to those seeking to participate as collaborators, and not mere consumers, in our increasingly technical world. This guide aligns with notions of liberating technological creation from industrial hands. I hope that the act of creating handmade platforms built by and for us, we can begin to re-enchant our digital realms. Even more so, I hope that you will begin to engage with new feelings of <em>independence</em>, <em>security</em>, and <em>sovereignty</em>.</p></section>
 <hr>
-<h2>Network Overview</h2>
+<section id="network-overview"><h2>Network Overview</h2>
 <p>Before we begin building the radio, let’s take a step back and look at ① the parts of a network and ② the Internet radio toolchain.</p>
-<h3>The Network</h3>
+<div id="the-network"><h3>The Network</h3>
 <p>A “local network” refers to a network within a scoped geographic area like a home or office. Devices within a local network can communicate directly with each other without the Internet using local IP addresses.</p>
 <h4>Common Terms</h4>
 <p><strong>Internet Service Provider (ISP)</strong>: The company that provides your local network with an Internet connection.</p>
@@ -53,17 +52,17 @@ const Manual = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 <ul><li><strong>Port Forwarding</strong>: The router needs to be configured to allow external requests to be directed to specific ports of the internal IP address of the Pi.</li>
 <li><strong>Dynamic DNS (DDNS)</strong>: Since the router has a dynamic IP address, a hostname from a DDNS provider needs to be associated with the changing IP address for more reliable service.</li>
 <li><strong>Firewalls</strong>: Firewalls on both the router the Pi need to be configured to permit incoming connections on the required ports for the specific services.</li>
-<li><strong>SSL Encryption</strong>: The website hosted on the Pi needs to implement SSL encryption to secure communications.</li></ul>
-<h3>The Internet Radio Toolchain</h3>
+<li><strong>SSL Encryption</strong>: The website hosted on the Pi needs to implement SSL encryption to secure communications.</li></ul></div>
+<div id="the-internet-radio-toolchain"><h3>The Internet Radio Toolchain</h3>
 <p>Online radio is usually composed of three parts:</p>
 <ul><li><strong>Stream Generator</strong>: The software responsible for creating an audio stream in a specific format, such as MP3 or Ogg Vorbis. It takes input from various sources such as live audio feeds, pre-recorded content, or playlists (ex: BUTT, Liquidsoap, ices, and DarkIce).</li>
 <li><strong>Streaming Media Server</strong>: The central hub. It is software that relays audio streams to listeners by receiving input from the stream generator and relaying it to listeners (ex: Icecast).</li>
 <li><strong>Media Player</strong>: The software or application used by listeners to access and play the audio stream (ex: VLC, web browsers).</li></ul>
 <p>For this project, Broadcast Using This Tool (BUTT) is the <em>stream generator</em>. It captures and encodes audio to send to the Icecast server. Icecast is the <em>streaming media server</em> hosted on the Pi that distributes the stream from the Pi to listeners. Listeners can use the stream’s web page as the <em>media player</em> to tune in to the broadcast.</p>
-<p>Additionally, we will be using a virtual audio cable to connect output from VLC to BUTT. This will allow us to stream pre-recorded media as well as broadcast live input at the some time.</p>
+<p>Additionally, we will be using a virtual audio cable to connect output from VLC to BUTT. This will allow us to stream pre-recorded media as well as broadcast live input at the some time.</p></div></section>
 <hr>
-<h2>Materials</h2>
-<h3>Hardware:</h3>
+<section id="materials"><h2>Materials</h2>
+<h3>Hardware</h3>
 <p>You will need a Raspberry Pi and peripherals to interact with the computer:</p>
 <ul><li>A Raspberry Pi<ul><li>This is your computer and server. I am using a Raspberry Pi 4 Model B. Any Raspberry Pi model with Wi-Fi capabilities will work for this project.</li></ul></li>
 <li>A keyboard</li>
@@ -73,15 +72,15 @@ const Manual = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 <li>A 15W USB-C power supply (for the Pi)<ul><li>The official <a href="https://www.raspberrypi.com/products/type-c-power-supply/" rel="nofollow">Raspberry Pi USB-C Power Supply</a>.</li></ul></li>
 <li>A Micro SD card with Raspberry Pi OS installed<ul><li>You can buy a pre-loaded SD card along with your Raspberry Pi, or you can install it the Raspberry Pi OS using <a href="https://www.raspberrypi.com/software/" rel="nofollow">Raspberry Pi imager</a>.</li></ul></li></ul>
 <p>I have not included any audio equipment. For the purposes of testing out your radio, having a computer with a microphone and speakers is sufficient. You can get additional equipment for the Pi if you want to broadcast from the Pi.</p>
-<h3>Software:</h3>
+<h3>Software</h3>
 <p>This guide prioritizes open source software. The following software are available to download and use for free:</p>
 <ul><li><a href="https://httpd.apache.org/" rel="nofollow">Apache2</a> (Web Server)</li>
 <li><a href="https://www.icecast.org/" rel="nofollow">Icecast2</a> (Streaming Server)</li>
 <li><a href="https://danielnoethen.de/butt/" rel="nofollow">BUTT - Broadcast Using This Tool</a> (Stream Generator)</li>
 <li><a href="https://www.videolan.org/" rel="nofollow">VLC</a> (Multimedia Player)</li>
-<li><a href="https://vb-audio.com/Cable/" rel="nofollow">VB-Cable</a> (Virtual Audio Cable)</li></ul>
+<li><a href="https://vb-audio.com/Cable/" rel="nofollow">VB-Cable</a> (Virtual Audio Cable)</li></ul></section>
 <hr>
-<h2>Building a Local Radio</h2>
+<section id="building-a-local-radio"><h2>Building a Local Radio</h2>
 <h3>Set up the Raspberry Pi</h3>
 <p>The <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html" rel="nofollow">Raspberry Pi website has great documentation</a> on how to set up your Pi out of the box. We will mostly be interfacing with the Raspberry Pi through the terminal in this guide.</p>
 <blockquote class="note"><h4>Common Terminal Commands</h4>
@@ -90,7 +89,7 @@ const Manual = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 	</li><li><code>systemctl</code>: Manages services and provides commands to start, stop, restart, enable, disable, and view status.
 	</li><li><code>nano</code>: Opens up a lightweight text editor within the terminal.
 	</li></ul></blockquote>
-<h3>Set up the Online Radio Toolchain</h3>
+<div id="set-up-the-online-radio-toolchain"><h3>Set up the Online Radio Toolchain</h3>
 <ol><li><p>First, install the Apache web server.
 We need to set up a web server to use with Icecast, the streaming media server. This enables us to access Icecast’s web-based administration interface and host a webpage.</p>
 <ul><li>From the terminal, update and upgrade the system<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo apt update
@@ -105,8 +104,8 @@ sudo apt upgrade</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>Let’s edit the Icecast2 configuration file to change the default passwords and server name<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo nano /etc/icecast2/icecast.xml</code>`}<!-- HTML_TAG_END --></pre><ul><li>I changed the <code>Source Password</code> (used for the source client authentication) and <code>Admin Password</code> (used for authenticating admin features of Icecast) for security. You can read the <a href="https://icecast.org/docs/icecast-2.4.1/basic-setup.html" rel="nofollow">Icecast Documentation</a> to learn more about basic setup.</li></ul></li>
 <li>After updating the configuration file, restart the Icecast2 server and check the status.<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">systemctl restart icecast2
 systemctl status icecast2</code>`}<!-- HTML_TAG_END --></pre></li>
-<li>Now that we have a web server and Icecast installed, we can access the Icecast stream interface at port 8000 of your Pi. Go to <code>http://192.168.0.34:8000/</code> (use the IP address of your Pi) to see the status page of your stream. There will be nothing under “Server Status” because you have not started a stream yet. We have to install BUTT or a stream generator software to begin broadcasting. <img src="/manual_images/Screenshot%202023-11-24%20at%202.02.18%20PM.png" alt="Icecast Status Page"></li></ul></li></ol>
-<ol start="3"><li><p>Download and configure BUTT, the stream generator.</p>
+<li>Now that we have a web server and Icecast installed, we can access the Icecast stream interface at port 8000 of your Pi. Go to <code>http://192.168.0.34:8000/</code> (use the IP address of your Pi) to see the status page of your stream. There will be nothing under “Server Status” because you have not started a stream yet. We have to install BUTT or a stream generator software to begin broadcasting. <img src="/manual_images/Screenshot%202023-11-24%20at%202.02.18%20PM.png" alt="Icecast Status Page"></li></ul></li>
+<li><p>Download and configure BUTT, the stream generator.</p>
 <blockquote class="note"><h4>Download Location </h4>
 <p>You can download BUTT on your Pi or your computer, depending on where you want to stream audio from. I downloaded it on both but remember that if you use your Pi to stream audio you need a mic for audio input and speakers or headphones for output.</p></blockquote>
 <ul><li><p>Before installing anything, update and upgrade the system</p>
@@ -132,8 +131,8 @@ sudo apt-get upgrade</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>If you are not hearing anything on <code>http://localhost:8000/stream</code>, make sure you have configured the input device on BUTT. Click on <code>Settings</code>, go to the <code>Audio</code> tab, and choose a device under <code>Primary Audio Device</code>.</li></ul></li></ul></li></ol>
 <blockquote class="success"><h4>We&#39;re local!</h4>
 <p>We now have a working local radio. Now you should be able to hear your broadcast from <code>http://localhost:8000/stream</code>. The radio can only be accessed from devices connected to the same local network and not available publicly on the Internet. We have to make some configurations so that listeners can stream the broadcast.
-</p></blockquote>
-<h3>Optional: Stream VLC to BUTT</h3>
+</p></blockquote></div>
+<div id="optional-stream-vlc-to-butt"><h3>Optional: Stream VLC to BUTT</h3>
 <p>If you want to stream pre-recorded media, like a playlist, you should connect VLC to BUTT with a virtual audio cable (VAC).</p>
 <ol><li><p>Download VLC from the <a href="https://www.videolan.org/" rel="nofollow">website</a>. Make sure to choose the appropriate package for your operating system.</p></li>
 <li><p>Download VB-Cable VAC from the <a href="https://vb-audio.com/Cable/" rel="nofollow">website</a>. This is currently only available on Windows and MacOS. For Linux, try <a href="https://jackaudio.org/" rel="nofollow">Jack Audio Connection Kit (JACK)</a>.</p>
@@ -144,8 +143,8 @@ sudo apt-get upgrade</code>`}<!-- HTML_TAG_END --></pre></li>
 <ul><li>I chose my <code>Macbook Microphone</code> as the <code>Primary Audio Device</code> and <code>VB-Cable</code> as the <code>Secondary Audio Device</code>. This allows me to stream the media from VLC and my microphone input at the same time. You can set <code>VB-Cable</code> as the only audio device if you only want to stream from VLC.</li></ul></li>
 <li><p>Verify the media is streaming from VLC</p>
 <ul><li>Start you broadcast from BUTT and go to the link of your stream at <code>http://localhost:8000/stream</code>. You should be able to hear the media from VLC.</li>
-<li>You can also view the input and output levels on the VB-Cable dashboard. It should be working fine as long as the numbers are constantly changing. <img src="manual_images/Screenshot%202023-11-25%20at%202.40.06%20AM.png" alt="VB-Cable input and ouput levels"></li></ul></li></ol>
-<h3>Optional: Set up SSH</h3>
+<li>You can also view the input and output levels on the VB-Cable dashboard. It should be working fine as long as the numbers are constantly changing. <img src="manual_images/Screenshot%202023-11-25%20at%202.40.06%20AM.png" alt="VB-Cable input and ouput levels"></li></ul></li></ol></div>
+<div id="optional-set-up-ssh"><h3>Optional: Set up SSH</h3>
 <p>You might find it helpful to set up SSH on your Pi so you can access the computer remotely. SSH lets you control the Pi from your laptop without setting up a monitor.</p>
 <blockquote class="note"><p>Follow <a href="https://www.howtogeek.com/768053/how-to-ssh-into-your-raspberry-pi/">this guide</a> from Tom&#39;s Hardware.
 </p></blockquote>
@@ -184,11 +183,11 @@ sudo service ssh start</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>Enter the password to your Pi. It will look like you are not typing anything but your keystrokes are being entered.</li>
 <li>If successful, you should see something like <code>username@rpi:~</code> at the beginning of the line in your terminal.</li></ul></li>
 <li><p>To exit out of SSH use:</p>
-<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">exit</code>`}<!-- HTML_TAG_END --></pre></li></ol>
+<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">exit</code>`}<!-- HTML_TAG_END --></pre></li></ol></div></section>
 <hr>
-<h2>Configuring the Public Radio</h2>
+<section id="configuring-the-public-radio"><h2>Configuring the Public Radio</h2>
 <p>Once your radio is working locally, we can set up port forwarding and dynamic DNS to make sure your radio is available publicly.</p>
-<h3>Set Up Port Forwarding</h3>
+<div id="set-up-port-forwarding"><h3>Set Up Port Forwarding</h3>
 <p>If your Raspberry Pi is connected to a router, you’ll need to set up port forwarding to forward external traffic to your Raspberry Pi’s local IP address. I set up port forwarding on 8000 (for Icecast), port 80 (for HTTP), port 22 (for SSH), and port 443 (for HTTPS).</p>
 <ol><li>Access your router’s settings.<ul><li>Open a web browser and enter your router’s IP address in the address bar. The router’s IP address is usually <code>192.168.0.1</code> or <code>192.168.1.1</code>. If you’re not sure, check your router’s documentation or your ISP. My router had a label on the bottom of the device with the address and settings password.</li>
 <li>Once you have logged in to the settings page, navigate to the “Port Forwarding” section.</li>
@@ -221,11 +220,11 @@ sudo service ssh start</code>`}<!-- HTML_TAG_END --></pre></li>
 <blockquote class="note"><ul><li>If your router settings uses port ranges (ex: local start port, local end port, external start port, external end port), just set them all to the same port number.
 </li><li>Port 8000 is the default port for Icecast. If you changed the port number in your Icecast configuration file, use the port that you specified. This should also be the same port you used in your BUTT settings. 
 </li></ul></blockquote>
-<ol start="2"><li>To verify that your ports are set up correctly, go to an <a href="https://www.yougetsignal.com/tools/open-ports/" rel="nofollow">online port check tool</a>.<ul><li>Enter your router’s public IP address and the port you forwarded and see if it’s connected. You can find your router’s public IP address by through an <a href="https://www.whatismyip.com/" rel="nofollow">online IP address checker</a>.</li></ul></li></ol>
-<h3>Set up Dynamic DNS (DDNS)</h3>
+<ol start="2"><li>To verify that your ports are set up correctly, go to an <a href="https://www.yougetsignal.com/tools/open-ports/" rel="nofollow">online port check tool</a>.<ul><li>Enter your router’s public IP address and the port you forwarded and see if it’s connected. You can find your router’s public IP address by through an <a href="https://www.whatismyip.com/" rel="nofollow">online IP address checker</a>.</li></ul></li></ol></div>
+<div id="set-up-dynamic-dns"><h3>Set up Dynamic DNS (DDNS)</h3>
 <p>The public IP address assigned to your router is often dynamic, meaning it can change periodically due to actions by your Internet Service Provider (ISP) or when you switch networks. By configuring a Dynamic DNS, you can associate a domain name with your router’s changing public IP address. This makes it easier to maintain the access to your stream.</p>
 <p>I provide steps to register with two free DDNS providers, No-IP and DuckDNS. No-IP requires you to manually confirm that the hostname is in use every 30 days while DuckDNS does not require any verification. I found that I ran into more issues with network security using a DuckDNS hostname which is why I switched over to No-IP.</p>
-<h4>OPtion 01 - No-ip</h4>
+<h4>Option 01 - No-ip</h4>
 <blockquote class="note"><p>No-IP will send you and email every 30 days to confirm that the hostname is still in use. If you do not confirm the hostname is active, your hostname will be deleted.</p></blockquote>
 <ol><li><p>Register with No-IP</p>
 <ul><li>Create an account on the <a href="https://www.noip.com/" rel="nofollow">no-ip website</a>. The sign-up page will ask you to create a hostname (you can also check the box to create one later). Use any hostname you want.</li>
@@ -242,7 +241,7 @@ sudo service ssh start</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>Replace <code>username</code> and <code>password</code> with your email and account password. If your password uses special characters, put it in single quotes (ex: <code>&#39;!Password&#39;</code>) to prevent errors.</li></ul></li>
 <li>You should see a response with the status about the program. The default behavior of the program is to check the IP of the router every 5 minutes and to update the hostname if the IP changes.</li></ul></li>
 <li><p>Verify DDNS by entering the domain you just set up (ex <code>http://radio.ddns.net</code>) into a web browser. You should see the same web page as when you use your router’s public IP.</p></li></ol>
-<h4>option 02 - Duck DNS</h4>
+<h4>Option 02 - Duck DNS</h4>
 <ol><li><p>Register with Duck DNS</p>
 <ul><li><p>Create an account on <a href="https://www.duckdns.org/" rel="nofollow">Duck DNS</a>or sign in with an existing account.</p></li>
 <li><p>Once you are logged in, you will see the section to add a domain. Choose a subdomain name and click <code>Add Domain</code>.</p>
@@ -275,8 +274,8 @@ nano duck.sh</code>`}<!-- HTML_TAG_END --></pre></li>
 <pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">./duck.sh</code>`}<!-- HTML_TAG_END --></pre></li>
 <li><p>You can also check the log to see if the last attempt was successful (returns <code>OK</code>).</p>
 <pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">cat duck.log</code>`}<!-- HTML_TAG_END --></pre></li></ul></li>
-<li><p>Verify DDNS by entering the domain you just set up (ex <code>http://radio.duckdns.org</code>) into a web browser. You should see the same web page as when you use your router’s public IP.</p></li></ol>
-<h3>Update Firewall Settings</h3>
+<li><p>Verify DDNS by entering the domain you just set up (ex <code>http://radio.duckdns.org</code>) into a web browser. You should see the same web page as when you use your router’s public IP.</p></li></ol></div>
+<div id="update-firewall-settings"><h3>Update Firewall Settings</h3>
 <p>A firewall is a security system that enhances the security of the Pi by regulating the flow of traffic between the Pi and local network. We have to update the Pi’s firewall rules to allow traffic at specific ports. <code>iptables</code> is the command-line utility uses on a Pi to define the rules for network traffic.</p>
 <ol><li><p>Check if <code>iptables</code> is installed from the terminal</p>
 <pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo iptables --version</code>`}<!-- HTML_TAG_END --></pre>
@@ -291,11 +290,11 @@ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code>`}<!-- HTML_TAG_END -->
 <pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo service iptables save
 sudo service iptables restart</code>`}<!-- HTML_TAG_END --></pre></li>
 <li><p>Check the current firewall rules. The output should list the four ports above.</p>
-<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo iptables -L</code>`}<!-- HTML_TAG_END --></pre></li></ol>
+<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo iptables -L</code>`}<!-- HTML_TAG_END --></pre></li></ol></div>
 <blockquote class="success"><h4>We&#39;re public!</h4>
 <p>From a device outside of the local network that your Pi is connected to, you can access your stream from  <code>http://public-ip:8000/stream</code>  (replace <code>public-ip</code> with your router&#39;s Public IP address) or <code>http://radio.ddns.org:8000/stream</code>. Make sure you are streaming from BUTT or there will be an 404 error.
 </p></blockquote>
-<h3>Optional: Use a Custom Domain</h3>
+<div id="optional-use-a-custom-domain"><h3>Optional: Use a Custom Domain</h3>
 <p>A downside with dynamic DNS hostnames is that they often get blocked by enterprise wifi networks (like school and company networks). This means blocked access to the stream.</p>
 <p>One workaround is to buy a custom domain and connect the DDNS hostname to the domain. Using a custom domain associated with a DDNS hostname is not guaranteed to work in all situations, as network administrators can employ various methods to control access. Some domain providers like <code>namecheap.com</code> offer free DDNS services with domain registration so you don’t have to use third-party DDNS services.</p>
 <ol><li><p>Purchase a domain on Namecheap</p></li>
@@ -360,10 +359,10 @@ sudo cp icecast.xml icecast.xml.bak</code>`}<!-- HTML_TAG_END --></pre></li>
 <ul><li>We have to update BUTT with the new domain as well</li>
 <li>Open BUTT and click on <code>Settings</code>. On the <code>Main</code> tab, go to <code>Server Settings</code> and click on <code>Edit</code></li>
 <li>Update <code>Address</code> with your domain (or subdomain). Hit <code>Save</code>.</li>
-<li>Hit play to start streaming. If everything is set up correctly, the BUTT log should say “Connection Established” and you should be able to access your stream at <code>your-domain.com/stream</code> or <code>stream.your-domain.com/stream</code>.</li></ul></li></ol>
-<h3>Optional: Set Up SSL</h3>
+<li>Hit play to start streaming. If everything is set up correctly, the BUTT log should say “Connection Established” and you should be able to access your stream at <code>your-domain.com/stream</code> or <code>stream.your-domain.com/stream</code>.</li></ul></li></ol></div>
+<div id="optional-set-up-ssl"><h3>Optional: Set Up SSL</h3>
 <p>Now that you have a domain, it’s a good idea to set up SSL. When your site has a HTTPS padlock, it enhances security, ensures encryption, and reduces the likelihood of browsers blocking it.</p>
-<h4>obtain a certificate</h4>
+<h4>Obtain a certificate</h4>
 <ol><li><p>Install Cerbot, a client for Let’s Encrypt and a free Certificate Authority. From the terminal, run:</p>
 <pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo apt-get update
 sudo apt-get install certbot</code>`}<!-- HTML_TAG_END --></pre></li>
@@ -378,7 +377,7 @@ sudo apt-get install certbot</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>Check Certbot can renew the certificate by running the renewal process:<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo certbot renew --dry-run</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>Open <code>crontab</code> to add a job.<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo crontab -e</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>At the bottom of the document, add this line to check for renewal twice a day (every 12 hours)<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">0 */12 * * * certbot renew</code>`}<!-- HTML_TAG_END --></pre></li></ul></li></ol>
-<h4>update icecast</h4>
+<h4>Update icecast</h4>
 <ol><li>Open the Icecast configuration file:<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo nano /etc/icecast2/icecast.xml</code>`}<!-- HTML_TAG_END --></pre></li>
 <li>At the bottom of the file, add your SSL certificate details<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">&lt;!-- Enable SSL --&gt;
 &lt;ssl&gt;1&lt;/ssl&gt;
@@ -387,9 +386,9 @@ sudo apt-get install certbot</code>`}<!-- HTML_TAG_END --></pre></li>
 &lt;port&gt;443&lt;/port&gt;</code>`}<!-- HTML_TAG_END --></pre><ul><li>Replace <code>[your-domain.com]</code> for both the <code>&lt;ssl-certificate&gt;</code> and <code>&lt;ssl-private-key&gt;</code> with the your actual domain.</li></ul></li>
 <li>Exit (<code>CTRL + X</code>) and save the changes (<code>Y</code>)</li>
 <li>Restart Icecast to apply the changes:<pre class="language-undefined"><!-- HTML_TAG_START -->${`<code class="language-undefined">sudo service icecast2 restart</code>`}<!-- HTML_TAG_END --></pre></li>
-<li>You can check your SSL with an <a href="https://www.ssllabs.com/ssltest/" rel="nofollow">online SSL tester</a>.</li></ol>
+<li>You can check your SSL with an <a href="https://www.ssllabs.com/ssltest/" rel="nofollow">online SSL tester</a>.</li></ol></div></section>
 <hr>
-<h2>Glossary</h2>
+<section id="glossary"><h2>Glossary</h2>
 <p><a href="https://apache.org/" rel="nofollow">Apache</a></p>
 <ul><li>A foundational, open-source web server software for deploying websites and web applications.</li></ul>
 <p><a href="https://danielnoethen.de/butt/" rel="nofollow">Broadcast Using This Tool (BUTT)</a></p>
@@ -435,7 +434,7 @@ sudo apt-get install certbot</code>`}<!-- HTML_TAG_END --></pre></li>
 <ul><li>A software application or hardware device that stores, processes, and delivers web content to users over the Internet. It handles tasks such as processing HTTP requests to access a web pages or dynamically generates content based on the request.</li>
 <li>The web server in this project uses Apache2 (software) to handle web-related tasks which is hosted and run on the Raspberry Pi (hardware).</li></ul>
 <p>Virtual Audio Cable (VAC)</p>
-<ul><li>Software that allows you to route audio signals between different applications or devices on your computer virtually.</li></ul>`;
+<ul><li>Software that allows you to route audio signals between different applications or devices on your computer virtually.</li></ul></section>`;
 });
 const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,

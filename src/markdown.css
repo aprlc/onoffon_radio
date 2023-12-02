@@ -16,7 +16,8 @@ blockquote {
   background-color: #fee7f0;
   padding: 1.5rem;
   border-radius: 16px;
-  max-width: fit-content;
+  min-width: fit-content;
+  font-family: "Toren", serif;
 }
 
 blockquote.note {
@@ -89,15 +90,15 @@ table {
 
 /* Style for table headers and cells */
 th, td {
-  border-right: 1px solid #ff0062;
-  border-bottom: 1px solid #ff0062;
+  border-right: 1px solid #f1c9d8;
+  border-bottom: 1px solid #f1c9d8;
   text-align: left;
   padding: 8px;
 }
 
-th {
-  color: #ff0062; /* Header background color */
-}
+/* th {
+  color: #000000; 
+} */
 
 /* Remove border on the last column */
 th:last-child, td:last-child {
@@ -117,6 +118,10 @@ tr:last-child td {
   width: 25%;
   border:#1e1e1e 1px solid;
   background-color: #fff;
+
+  font-family: "Toren", serif;
+  font-size: 0.9rem;
+  /* overflow-y: scroll; */
 }
 
 #toc {
@@ -165,5 +170,10 @@ tr:last-child td {
   #toc-container {
     left: 2rem;
     width: 66%;
+    font-size: 1.2rem;
+  }
+
+  #toc ol{
+    margin-left: 3rem;
   }
 }

@@ -1,15 +1,15 @@
-import { c as create_ssr_component, e as escape } from "./index2.js";
+import { c as create_ssr_component } from "./index2.js";
 const metadata = {
-  "title": "Welcome to Space Radio",
-  "date": "26-05-2023",
-  "time": "18:00 to 19:00",
-  "slug": "26-06-2023",
-  "type": "show",
-  "desc": "This is the first session of SPACE Radio! Tune in to learn about the space."
+  "title": "CCI Winter Festival",
+  "slug": "07-12-2023",
+  "date": "07-12-2023",
+  "time": "17:00 to 19:30",
+  "location": "42 Bonar Road, SE15 5FB, London, UK",
+  "type": "(IRL)",
+  "desc": "The launch of onoffon radio at the Creative Computing Institute's (UAL) winter showcase. Broadcasting live for the duration of the event, tune in to hear the ambient sounds from the gallery and musings from the attendees. The inaugural show will explore the act of going public and casual forms of publishing."
 };
-const { title, date, time, slug, type, desc } = metadata;
 const _26_05_2023 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<p>${escape(title)}</p>`;
+  return ``;
 });
 const __vite_glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
