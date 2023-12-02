@@ -128,9 +128,18 @@ tr:last-child td {
   padding-top: 1rem;
   border-top: #1e1e1e 1px solid;
 
-  max-height: 50vh;
+  max-height: 60vh;
   overflow-y: scroll;
 
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#toc::-webkit-scrollbar {
+  display: none;
 }
 
 #toc ol, #toc li, #toc a{

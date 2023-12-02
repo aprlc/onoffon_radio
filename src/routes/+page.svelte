@@ -107,7 +107,6 @@
 		grid-template-columns: 1fr 1fr 2fr;
 		grid-template-rows: auto auto auto;
 		border-top: #1e1e1e 1px solid;
-		overflow-y: scroll;
 	}
 
 	/* first grid item */
