@@ -52,13 +52,13 @@
 
 <!-- All the styling within .svelte files is scoped. Meaning any CSS in this file doesn't effect rest of the files -->
 <style>
-#container {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 60%;
-    margin: auto;
-  }
+	#container {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		width: 60%;
+		margin: auto;
+	}
 
 	section {
 		font-family: "Toren", serif;
@@ -66,14 +66,14 @@
 		padding-bottom: 20px;
 	}
 
-  section h4 {
-    margin-bottom: 1rem;
-  }
+	section h4 {
+		margin-bottom: 1rem;
+	}
 
-  .about p {
-    max-width: 60ch;
-    margin: 1em auto;
-  }
+	.about p {
+		max-width: 60ch;
+		margin: 1em auto;
+	}
 
 	#logo {
 		margin: 2em auto 1em auto;
@@ -108,9 +108,9 @@
 		display: grid;
   		grid-template-columns: 1fr 1fr 2fr;
   		grid-template-rows: auto auto auto;
-    border-top: black 1px solid;
-    overflow-y: scroll;
-  }
+		border-top: black 1px solid;
+		overflow-y: scroll;
+	}
 
   /* first grid item */
   .post-container > :nth-child(1) {
@@ -143,5 +143,6 @@
 		#container {
 			width: 100%;
 		}
+
 	}
 </style>

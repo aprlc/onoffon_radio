@@ -167,7 +167,7 @@ tr:last-child td {
   background-color: #fee7f0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 780px) {
   #toc-container {
     left: 2rem;
     width: 66%;

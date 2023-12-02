@@ -71,7 +71,7 @@ body {
   color: #1e1e1e;
   /* font-family: "Toren", serif; */
   font-family: "Arial", "Helvetica", sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 0.5em 1em;
   margin: 0 auto;
   word-break: break-word;
@@ -160,10 +160,9 @@ button a {
   color: #1e1e1e;
 }
 
-@media screen and (max-width: 768px) {
-  body {
-    min-width: fit-content;
+@media screen and (max-width: 780px) {
+  /* body {
     padding: 0rem 2rem;
     font-size: 1rem;
-  }
+  } */
 }

@@ -28,16 +28,26 @@
 <style>
 	.manual-container {
 	display: grid;
-	grid-template-columns: repeat(9, 1fr); /* Eight columns with equal width */
+	grid-template-columns: repeat(5, 1fr); 
   }
 
   .right-div {
-	grid-column: 5 / span 4;
+	grid-column: 4 / span 1;
+	}
+/* 
+	.manual-container {
+		display: flex;
+		justify-content: flex-end;
 	}
 
-	@media screen and (max-width: 768px) {
+	.right-div {
+		left: 5rem;
+		max-width: 60ch;
+	} */
+
+	@media screen and (max-width: 780px) {
 		.right-div {
-		grid-column: first / end;
+			grid-column: 1 / span 5;
 		}
 	}
 </style>
