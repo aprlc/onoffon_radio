@@ -121,7 +121,7 @@ tr:last-child td {
 
   font-family: "Toren", serif;
   font-size: 0.9rem;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 }
 
 #toc {
