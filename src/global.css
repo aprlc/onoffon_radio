@@ -157,6 +157,10 @@ button {
   font-family: "Toren", serif;
 }
 
+button a {
+  color: #1e1e1e;
+}
+
 @media screen and (max-width: 768px) {
   body {
     min-width: fit-content;
