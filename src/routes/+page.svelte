@@ -40,7 +40,7 @@
 					<div class="grid-item">{post.metadata.time}</div>
 					<div class="grid-item">{post.metadata.title}</div>
 					<div class="grid-item">{post.metadata.type} ✶ {post.metadata.location}</div>
-					<div class="grid-item">{post.metadata.desc}</div>
+					<div class="grid-item gothic">{post.metadata.desc}</div>
 				</div>
 			{/each}
 		</div>
@@ -56,6 +56,12 @@
 		gap: 1em;
 		width: 60%;
 		margin: auto;
+	}
+
+	.gothic {
+		font-family: 'Gothic A1', sans-serif;
+		font-size: 0.9rem;
+		line-height: 1.2;
 	}
 
 	section {
@@ -105,7 +111,7 @@
 	.post-container {
 		display: grid;
 		grid-template-columns: 1fr 1fr 2fr;
-		grid-template-rows: auto auto auto;
+		grid-template-rows: 1fr 0.5fr auto;
 		border-top: #1e1e1e 1px solid;
 	}
 
@@ -119,7 +125,7 @@
 		border-right: 1px solid #1e1e1e;
 	}
 
-	/* last grid item (description) */
+	/* last grid item (location) */
 	.post-container > :nth-child(4) {
 		grid-row: 2;
 		grid-column: 2 / span 2;
