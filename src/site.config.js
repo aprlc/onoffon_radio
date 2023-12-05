@@ -1,8 +1,8 @@
 export const config = {
 	// Site Title
-	title: 'SPACE RADIO',
+	title: 'onoffon radio',
 	// Site Description (max 150 characters)
-	description: "A handmade radio",
+	description: "***a handmade online radio***",
 	// Site URL
 	url: 'radioo.space'
 };
