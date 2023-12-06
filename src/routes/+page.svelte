@@ -25,7 +25,8 @@
 
   <section id="radio" class="audio-player">
 		<audio controls preload="auto">
-			<source src="https://stream.radioo.space/stream" type="audio/mpeg" />
+			<!-- <source src="https://stream.radioo.space/stream" type="audio/mpeg" /> -->
+			<source src="http://192.168.8.103:8000/stream" type="audio/mpeg" />
 			Your browser does not support the audio tag.
 		 </audio>
 	</section>
