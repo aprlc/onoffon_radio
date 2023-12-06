@@ -32,10 +32,14 @@
       right: 3rem;
       user-select: none;
       bottom: 1rem;
-      color: #ff0062;
-      background-color: #fee7f0;
+      color: #ff4e3c;
+      /* background-color: #ff4e3c; */
       font-family: "Toren", serif;
       max-width: 20%;
+    }
+
+    .back-to-top:hover {
+      background-color: #ff4e3c;
     }
   
     .back-to-top.hidden {

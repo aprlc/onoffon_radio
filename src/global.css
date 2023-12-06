@@ -42,6 +42,9 @@ button {
 
 hr {
   margin-bottom: 1em;
+  background-color: #1e1e1e;
+  height: 1px;
+  border: none;
 }
 
 /* Importing fonts */
@@ -77,6 +80,7 @@ body {
   padding: 0.5em 1em;
   margin: 0 auto;
   word-break: break-word;
+  /* color: #ff4e3c; */
 }
 
 #title {
@@ -128,7 +132,7 @@ pre code {
 }
 
 code {
-  background-color: #eeecfb;
+  background-color: #f1c9d8;
   padding: 0.1rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -151,7 +155,8 @@ a {
 
 a:hover {
   color: #1e1e1e;
-  background-color: #DDE392;
+  /* background-color: #DDE392; */
+  background-color: #ff4e3c;
 }
 
 button {

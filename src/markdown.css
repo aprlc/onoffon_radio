@@ -26,7 +26,8 @@ blockquote.note {
 }
 
 blockquote.note h4 {
-  color: #ff0062;
+  /* color: #ff0062; */
+  color: #ff4e3c;
 }
 
 blockquote.note code {
@@ -90,8 +91,8 @@ table {
 
 /* Style for table headers and cells */
 th, td {
-  border-right: 1px solid #f1c9d8;
-  border-bottom: 1px solid #f1c9d8;
+  border-right: 1px solid #ff4e3c;
+  border-bottom: 1px solid #ff4e3c;
   text-align: left;
   padding: 8px;
 }
@@ -160,7 +161,7 @@ tr:last-child td {
 }
 
 #toc a:hover {
-  background-color: #fee7f0;
+  background-color: #ff4e3c;
 }
 
 #toc-container button {
@@ -175,7 +176,7 @@ tr:last-child td {
 }
 
 #toc-container button:hover{
-  background-color: #fee7f0;
+  background-color: #ff4e3c;
 }
 
 section, div {

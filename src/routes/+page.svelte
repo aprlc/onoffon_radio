@@ -9,7 +9,7 @@
 
 <div id="container">
 	<div id="logo">
-		<img src={Logo} alt="logo" />
+		<img src="/onoffon-rotate.png" alt="onoffon radio logo" />
 	</div>
 
 	<section class="about">
@@ -81,12 +81,13 @@
 	}
 
 	#logo {
-		margin: 2em auto 1em auto;
+		margin: 3em auto 2em auto;
 		text-emphasis: center;
 	}
 
 	#logo img {
-		max-width: 140px !important;
+		height: 100%;
+		max-width: 500px !important;
 	}
 
 	h4 {

@@ -493,7 +493,7 @@ I provide steps to register with two free DDNS providers, No-IP and DuckDNS. No-
 
 1. Register with Duck DNS
 
-   - Create an account on [Duck DNS](https://www.duckdns.org/)or sign in with an existing account.
+   - Create an account on [Duck DNS](https://www.duckdns.org/) or sign in with an existing account.
    - Once you are logged in, you will see the section to add a domain. Choose a subdomain name and click `Add Domain`.
       <!-- ![[Capture-2023-11-24-175259.png|500]] -->
 
