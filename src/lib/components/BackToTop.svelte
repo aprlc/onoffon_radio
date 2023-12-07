@@ -33,7 +33,7 @@
       user-select: none;
       bottom: 1rem;
       color: #ff4e3c;
-      /* background-color: #ff4e3c; */
+      background-color: #fff;
       font-family: "Toren", serif;
       max-width: 20%;
     }
