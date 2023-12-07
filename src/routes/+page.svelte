@@ -179,5 +179,10 @@
 			grid-column: 1 / span 2;
 		}
 
+		#logo img {
+		height: 100%;
+		max-width: 250px !important;
+	}
+
 	}
 </style>
