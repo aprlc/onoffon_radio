@@ -83,11 +83,27 @@
 	#logo {
 		margin: 3em auto 2em auto;
 		text-emphasis: center;
+		max-width: 100%;
+      	max-height: 100%; 
 	}
 
 	#logo img {
-		height: 100%;
-		max-width: 500px !important;
+		display: block;
+      	width: 100%; /* Set the width to fill the container */
+      	height: auto; /* Allow the height to adjust proportionally */
+	}
+
+	@supports (-webkit-appearance: none) {
+  		/* Safari-specific styles */
+		#logo {
+			max-width: 100%;
+  			max-height: 100%;
+		}
+		#logo img {
+			display: block;
+			width: 80%; /* Set the width to fill the container */
+			height: auto; /* Allow the height to adjust proportionally */
+		}
 	}
 
 	h4 {
@@ -180,9 +196,22 @@
 		}
 
 		#logo img {
-		height: 100%;
-		max-width: 250px !important;
-	}
+			max-height: 80px;
+			width: 100% !important;
+		}
 
+		@supports (-webkit-appearance: none) {
+			/* Safari-specific styles */
+			#logo {
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			#logo img {
+				display: block;
+				width: 100%; 
+				height: auto; 
+			}
+		}
 	}
 </style>
