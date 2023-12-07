@@ -101,7 +101,7 @@
 		}
 		#logo img {
 			display: block;
-			width: 80%; /* Set the width to fill the container */
+			width: 100%; /* Set the width to fill the container */
 			height: auto; /* Allow the height to adjust proportionally */
 		}
 	}
