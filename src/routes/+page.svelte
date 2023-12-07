@@ -4,12 +4,12 @@
 	
 	// import AudioPlayer from '$lib/components/AudioPlayer.svelte';
 
-  import Logo from "$lib/images/logo.svg";
+  import Logo from "$lib/images/onoffon-rotate.svg";
 </script>
 
 <div id="container">
 	<div id="logo">
-		<img src="/onoffon-rotate.png" alt="onoffon radio logo" />
+		<img src={Logo} alt="onoffon radio logo" />
 	</div>
 
 	<section class="about">

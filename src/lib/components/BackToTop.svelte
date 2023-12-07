@@ -39,7 +39,7 @@
     }
 
     .back-to-top:hover {
-      background-color: #ff4e3c;
+      background-color: #fee7f0;
     }
   
     .back-to-top.hidden {
