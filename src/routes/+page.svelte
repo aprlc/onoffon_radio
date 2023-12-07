@@ -4,7 +4,7 @@
 	
 	// import AudioPlayer from '$lib/components/AudioPlayer.svelte';
 
-  import Logo from "$lib/images/onoffon-rotate.svg";
+  import Logo from "$lib/images/onoffon-rotate.png";
 </script>
 
 <div id="container">
