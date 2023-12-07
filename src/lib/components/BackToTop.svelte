@@ -35,7 +35,8 @@
       color: #ff4e3c;
       background-color: #fff;
       font-family: "Toren", serif;
-      max-width: 20%;
+      max-width: 20%; 
+      /* comment */
     }
 
     .back-to-top:hover {
