@@ -82,9 +82,9 @@
 
 	#logo {
 		margin: 3em auto 2em auto;
-		text-emphasis: center;
-		max-width: 100%;
-      	max-height: 100%; 
+		text-align: center;
+		/* max-width: 80%;
+      	max-height: 100%;  */
 	}
 
 	#logo img {
@@ -96,7 +96,7 @@
 	@supports (-webkit-appearance: none) {
   		/* Safari-specific styles */
 		#logo {
-			max-width: 100%;
+			max-width: 80%;
   			max-height: 100%;
 		}
 		#logo img {
@@ -195,15 +195,15 @@
 			grid-column: 1 / span 2;
 		}
 
-		#logo img {
+		/* #logo img {
 			max-height: 80px;
 			width: 100% !important;
-		}
+		} */
 
 		@supports (-webkit-appearance: none) {
 			/* Safari-specific styles */
 			#logo {
-				max-width: 100%;
+				max-width: 70%;
 				max-height: 100%;
 			}
 
