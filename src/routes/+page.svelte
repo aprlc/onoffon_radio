@@ -123,7 +123,7 @@
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
-		gap: 0em;
+		gap: 1em;
 	}
 
 	.post-container {
