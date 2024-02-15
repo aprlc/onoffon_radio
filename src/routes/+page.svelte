@@ -1,10 +1,13 @@
 <script>
 	const postsModules = import.meta.glob("../posts/*.md", { eager: true });
 	const posts = Object.values(postsModules);
-	
-	// import AudioPlayer from '$lib/components/AudioPlayer.svelte';
 
   import Logo from "$lib/images/onoffon-rotate.png";
+//   import AudioPlayer from "$lib/components/AudioPlayer.svelte";
+  import AudioPlayer from '$lib/components/AudioPlayerFull.svelte';
+  const src = [
+		'https://stream.radioo.space/stream',
+	]
 </script>
 
 <div id="container">
@@ -21,7 +24,7 @@
 		</p>
 	</section>
 
-	<!-- <AudioPlayer /> -->
+	<!-- <AudioPlayer {src}/> -->
 
   <section id="radio" class="audio-player">
 		<audio controls preload="auto">
