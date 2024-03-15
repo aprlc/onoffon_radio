@@ -97,10 +97,6 @@ th, td {
   padding: 8px;
 }
 
-/* th {
-  color: #000000; 
-} */
-
 /* Remove border on the last column */
 th:last-child, td:last-child {
   border-right: none;
@@ -114,12 +110,11 @@ tr:last-child td {
 #toc-container {
   position: fixed;
   display: block;
-  left: 3em;
+  left: 1em;
   bottom: 1rem;
   width: 25%;
   border:#1e1e1e 1px solid;
   background-color: #fff;
-
   font-family: "Toren", serif;
   font-size: 0.9rem;
 }

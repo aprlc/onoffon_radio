@@ -1,47 +1,18 @@
-<header>
-	<div class="container">
-		<a href="/" data-sveltekit-preload-data="hover">Home</a>
-
-		<nav>
-			<ul>
-				<li>
-					<a href="/manual" data-sveltekit-preload-data="off">Manual</a>
-				</li>
-			</ul>
+<header class="sticky top-0">
+	<div class="py-4">
+		<nav class="flex justify-between">
+			<div class="grow">
+				<a class="no-underline" href="/" data-sveltekit-preload-data="hover">Home</a>
+			</div>
+			<div class="grow text-right">
+				<a class="no-underline" href="/manual" data-sveltekit-preload-data="off">Manual</a>
+			</div>
 		</nav>
 	</div>
 
 </header>
 
 <style>
-	header{
-		position: sticky; 
-		top: 0;
-		padding: 1rem 2rem;
-	}
-
-	.container {
-		font-family: "Toren", serif;
-		display: flex;
-		flex-wrap: wrap;
-		z-index: 1000;
-		width: 100%;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	ul {
-		margin: 0;
-		list-style-type: none;
-		display: flex;
-		gap: 1rem;
-	}
-
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-
 	@media screen and (max-width: 780px) {
 		header {
 			background-color: #fff;

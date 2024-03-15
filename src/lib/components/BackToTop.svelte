@@ -29,7 +29,7 @@
       transition: opacity 0.5s, visibility 0.5s;
       position: fixed;
       z-index: 99;
-      right: 3rem;
+      right: 1rem;
       user-select: none;
       bottom: 1rem;
       color: #ff4e3c;

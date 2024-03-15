@@ -7,8 +7,8 @@
 
 <div class="manual-container">
 	<div class="right-div">
-	<svelte:component this={manual.default} />
-</div>
+		<svelte:component this={manual.default} />
+	</div>
 </div>
 
 <BackToTop />
@@ -20,7 +20,7 @@
   }
 
   .right-div {
-	grid-column: 4 / span 1;
+	grid-column: 3 / span 2;
 	}
 
 	@media screen and (max-width: 780px) {

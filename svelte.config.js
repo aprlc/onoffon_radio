@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-auto';
 import { mdsvex } from 'mdsvex';
 import relativeImages from 'mdsvex-relative-images';
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,7 +16,8 @@ const config = {
 		mdsvex({
 			extensions: ['.md', '.svx'],
 			remarkPlugins: [relativeImages],
-		})
+		}),
+		vitePreprocess()
 	],
 	vitePlugin: {
 		inspector: true

@@ -10,7 +10,7 @@
 	]
 </script>
 
-<div id="container">
+<div id="pageContainer">
 	<div id="logo">
 		<img src={Logo} alt="onoffon radio logo" />
 	</div>
@@ -52,9 +52,9 @@
 	</section>
 </div>
 
-<!-- All the styling within .svelte files is scoped. Meaning any CSS in this file doesn't effect rest of the files -->
+
 <style>
-	#container {
+	#pageContainer {
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
@@ -164,7 +164,7 @@
 	}
 
 	@media (max-width: 780px) {
-		#container {
+		#pageContainer {
 			width: 100%;
 		}
 
@@ -197,11 +197,6 @@
 			grid-row: 4;
 			grid-column: 1 / span 2;
 		}
-
-		/* #logo img {
-			max-height: 80px;
-			width: 100% !important;
-		} */
 
 		@supports (-webkit-appearance: none) {
 			/* Safari-specific styles */
