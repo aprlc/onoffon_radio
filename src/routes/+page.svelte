@@ -3,8 +3,8 @@
 	const posts = Object.values(postsModules);
 
   import Logo from "$lib/images/onoffon-rotate.png";
-//   import AudioPlayer from "$lib/components/AudioPlayer.svelte";
-  import AudioPlayer from '$lib/components/AudioPlayerFull.svelte';
+  import AudioPlayer from "$lib/components/AudioPlayer.svelte";
+//   import AudioPlayer from '$lib/components/AudioPlayerFull.svelte';
   const src = [
 		'https://stream.radioo.space/stream',
 	]
@@ -16,7 +16,7 @@
 			<img src={Logo} alt="onoffon radio logo" class="max-w-full md:max-w-[48vw]" />
 		</div>
 
-		<p class="text-red mt-0 text-2xl md:text-4xl md:max-w-[48ch]">
+		<p class="text-red mt-0 text-2xl md:text-4xl md:max-w-[45ch]">
 			onoffon radio is a handmade, online radio not bounded by location,
       audience, or contributors. Sometimes on, sometimes off, the radio holds space
       for discussion, casual publishing, knowledge sharing, audio-making, and sonic
@@ -26,15 +26,16 @@
 		
 
 		<div id="radio" class="fixed bottom-4 md:right-4">
-			<audio controls preload="auto">
+			<!-- <audio controls preload="auto">
 				<source src="https://stream.radioo.space/stream" type="audio/mpeg" />
-				<!-- <source src="http://192.168.8.103:8000/stream" type="audio/mpeg" /> -->
+				<source src="http://192.168.8.103:8000/stream" type="audio/mpeg" />
 				Your browser does not support the audio tag.
-			</audio>
+			</audio> -->
+			<AudioPlayer />
 		</div>
 	</section>
 
-	<!-- <AudioPlayer {src}/> -->
+	
 
 	<section class="w-full pb-24 md:pb-0 md:w-2/5 md:overflow-hidden md:overflow-y-scroll">
 		<!-- <h4>Program</h4> -->
@@ -42,7 +43,7 @@
 		<div class="flex flex-col gap-12 text-red md:h-[90%]">
 			{#each posts as post}
 				{#if post.metadata.hidden === false}
-					<div class="grid grid-cols-4 gap-4 font-serif text-xs border-t border-red">
+					<div class="grid grid-cols-4 gap-y-4 font-serif text-xs border-t border-red">
 						<div class="col-start-1 p-1 border-l border-red">{post.metadata.date}</div>
 						<div class="col-start-2 p-1 border-x border-red">{post.metadata.time}</div>
 						<div class="col-start-3 p-1 col-span-2 border-r border-red">{post.metadata.title}</div>

@@ -9,7 +9,6 @@
 			</div>
 		</nav>
 	</div>
-
 </header>
 
 <style>
@@ -18,6 +17,5 @@
 			background-color: #fff;
 			padding: 0.5rem 0;
 		}
-
 	}
 </style>
