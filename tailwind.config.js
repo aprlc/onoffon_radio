@@ -4,7 +4,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ['"Gothic A1"', "sans-serif"],
-      serif: ["Toren", "serif"],
+      serif: ["BIZ UDPMincho", "serif"],
     },
     extend: {
       colors: {

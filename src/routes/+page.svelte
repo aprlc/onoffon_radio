@@ -15,7 +15,7 @@
 		<img src={Logo} alt="onoffon radio logo" />
 	</div>
 
-	<section class="about">
+	<section class="about gothic">
 		<p>
 			<em>onoffon radio</em> is a handmade, online radio not bounded by location,
       audience, or contributors. Sometimes on, sometimes off, the radio holds space
@@ -34,7 +34,7 @@
 		 </audio>
 	</section>
 
-	<section>
+	<section class="program">
 		<h4>Program</h4>
 		
 		<div class="posts">
@@ -58,18 +58,18 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
-		width: 60%;
+		max-width: 55vw;
 		margin: auto;
 	}
 
 	.gothic {
 		font-family: 'Gothic A1', sans-serif;
-		font-size: 0.9rem;
+		/* font-size: 0.9rem; */
 		line-height: 1.2;
 	}
 
 	section {
-		font-family: "Toren", serif;
+		font-family: "BIZ UDPMincho", sans-serif;
 		font-weight: 400;
 		padding-bottom: 20px;
 	}
@@ -165,7 +165,7 @@
 
 	@media (max-width: 780px) {
 		#pageContainer {
-			width: 100%;
+			max-width: 100%;
 		}
 
 		.post-container {

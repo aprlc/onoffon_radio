@@ -58,8 +58,7 @@
 
 ## Setting Intentions
 
-> When you liberate programming from the requirement to be professional and scalable, it becomes a different activity altogether, just as cooking at home is really nothing like cooking in a commercial kitchen. I can report to you: not only is this different activity rewarding in almost exactly the same way that cooking for someone you love is rewarding, there’s another feeling, too, specific to this realm....What is this feeling? Independence? Security? Sovereignty?
-> <br>
+> When you liberate programming from the requirement to be professional and scalable, it becomes a different activity altogether, just as cooking at home is really nothing like cooking in a commercial kitchen. I can report to you: not only is this different activity rewarding in almost exactly the same way that cooking for someone you love is rewarding, there’s another feeling, too, specific to this realm....What is this feeling? Independence? Security? Sovereignty? <br><br>
 > 𞠕 Robin Sloan, An App Can Be A Home-cooked Meal
 
 This manual is not a technical tutorial to building a reliable and scalable online radio. It is not intended to be an authoritative or exhaustive reference.

@@ -5,7 +5,7 @@
 /// <reference types="@sveltejs/kit" />
 
 /**
- * Environment variables [loaded by Vite](https://vitejs.dev/guide/env-and-mode.html#env-files) from `.env` files and `process.env`. Like [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), this module cannot be imported into client-side code. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
+ * Environment variables [loaded by Vite](https://vitejs.dev/guide/env-and-mode.html#env-files) from `.env` files and `process.env`. Like [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), this module cannot be imported into client-side code. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env).
  * 
  * _Unlike_ [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), the values exported from this module are statically injected into your bundle at build time, enabling optimisations like dead code elimination.
  * 
@@ -26,79 +26,79 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const npm_package_devDependencies_prettier: string;
 	export const MANPATH: string;
-	export const npm_package_devDependencies_eslint_plugin_svelte: string;
+	export const npm_package_devDependencies_prettier: string;
 	export const TERM_PROGRAM: string;
+	export const npm_package_devDependencies_eslint_plugin_svelte: string;
 	export const NODE: string;
-	export const INIT_CWD: string;
 	export const npm_package_devDependencies_prettier_plugin_svelte: string;
-	export const npm_package_devDependencies_vite: string;
-	export const SHELL: string;
+	export const INIT_CWD: string;
 	export const TERM: string;
-	export const TMPDIR: string;
+	export const SHELL: string;
+	export const npm_package_devDependencies_vite: string;
 	export const HOMEBREW_REPOSITORY: string;
-	export const npm_package_scripts_lint: string;
+	export const TMPDIR: string;
 	export const CONDA_SHLVL: string;
+	export const npm_package_scripts_lint: string;
 	export const TERM_PROGRAM_VERSION: string;
 	export const npm_package_scripts_dev: string;
-	export const MallocNanoZone: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
-	export const npm_config_registry: string;
-	export const npm_package_devDependencies__sveltejs_kit: string;
+	export const MallocNanoZone: string;
 	export const npm_package_private: string;
+	export const npm_package_devDependencies__sveltejs_kit: string;
+	export const npm_config_registry: string;
 	export const USER: string;
 	export const npm_package_dependencies_mdsvex: string;
 	export const COMMAND_MODE: string;
-	export const PNPM_SCRIPT_SRC_DIR: string;
 	export const CONDA_EXE: string;
-	export const npm_package_devDependencies_svelte_pdf: string;
+	export const PNPM_SCRIPT_SRC_DIR: string;
 	export const SSH_AUTH_SOCK: string;
-	export const npm_package_devDependencies_postcss: string;
-	export const npm_package_devDependencies_eslint: string;
+	export const npm_package_devDependencies_svelte_pdf: string;
 	export const __CF_USER_TEXT_ENCODING: string;
+	export const npm_package_devDependencies_eslint: string;
+	export const npm_package_devDependencies_postcss: string;
 	export const npm_execpath: string;
 	export const npm_package_devDependencies_svelte: string;
-	export const npm_config_frozen_lockfile: string;
 	export const _CE_CONDA: string;
+	export const npm_config_frozen_lockfile: string;
 	export const PATH: string;
-	export const _: string;
 	export const __CFBundleIdentifier: string;
-	export const npm_command: string;
-	export const npm_package_devDependencies_tailwindcss: string;
 	export const PWD: string;
-	export const npm_package_dependencies_mdsvex_relative_images: string;
+	export const npm_package_devDependencies_tailwindcss: string;
+	export const npm_command: string;
 	export const npm_package_scripts_preview: string;
+	export const npm_package_dependencies_mdsvex_relative_images: string;
 	export const npm_lifecycle_event: string;
-	export const npm_package_name: string;
 	export const LANG: string;
+	export const npm_package_name: string;
+	export const NODE_PATH: string;
 	export const npm_package_scripts_build: string;
-	export const XPC_FLAGS: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
-	export const npm_config_node_gyp: string;
+	export const XPC_FLAGS: string;
 	export const npm_package_devDependencies_eslint_config_prettier: string;
-	export const npm_package_devDependencies__sveltejs_adapter_auto: string;
-	export const npm_package_version: string;
-	export const XPC_SERVICE_NAME: string;
+	export const npm_config_node_gyp: string;
 	export const _CE_M: string;
+	export const XPC_SERVICE_NAME: string;
+	export const npm_package_version: string;
+	export const npm_package_devDependencies__sveltejs_adapter_auto: string;
 	export const npm_package_devDependencies_autoprefixer: string;
-	export const npm_package_type: string;
-	export const HOME: string;
 	export const SHLVL: string;
+	export const HOME: string;
+	export const npm_package_type: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const HOMEBREW_PREFIX: string;
-	export const npm_package_scripts_format: string;
-	export const LOGNAME: string;
 	export const CONDA_PYTHON_EXE: string;
+	export const LOGNAME: string;
+	export const npm_package_scripts_format: string;
 	export const npm_lifecycle_script: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const npm_config_user_agent: string;
-	export const GIT_ASKPASS: string;
-	export const VSCODE_GIT_ASKPASS_NODE: string;
-	export const HOMEBREW_CELLAR: string;
 	export const INFOPATH: string;
-	export const npm_node_execpath: string;
+	export const HOMEBREW_CELLAR: string;
+	export const VSCODE_GIT_ASKPASS_NODE: string;
+	export const GIT_ASKPASS: string;
 	export const COLORTERM: string;
+	export const npm_node_execpath: string;
 	export const NODE_ENV: string;
 }
 
@@ -116,7 +116,7 @@ declare module '$env/static/public' {
 }
 
 /**
- * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
+ * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env).
  * 
  * This module cannot be imported into client-side code.
  * 
@@ -129,82 +129,82 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		npm_package_devDependencies_prettier: string;
 		MANPATH: string;
-		npm_package_devDependencies_eslint_plugin_svelte: string;
+		npm_package_devDependencies_prettier: string;
 		TERM_PROGRAM: string;
+		npm_package_devDependencies_eslint_plugin_svelte: string;
 		NODE: string;
-		INIT_CWD: string;
 		npm_package_devDependencies_prettier_plugin_svelte: string;
-		npm_package_devDependencies_vite: string;
-		SHELL: string;
+		INIT_CWD: string;
 		TERM: string;
-		TMPDIR: string;
+		SHELL: string;
+		npm_package_devDependencies_vite: string;
 		HOMEBREW_REPOSITORY: string;
-		npm_package_scripts_lint: string;
+		TMPDIR: string;
 		CONDA_SHLVL: string;
+		npm_package_scripts_lint: string;
 		TERM_PROGRAM_VERSION: string;
 		npm_package_scripts_dev: string;
-		MallocNanoZone: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
-		npm_config_registry: string;
-		npm_package_devDependencies__sveltejs_kit: string;
+		MallocNanoZone: string;
 		npm_package_private: string;
+		npm_package_devDependencies__sveltejs_kit: string;
+		npm_config_registry: string;
 		USER: string;
 		npm_package_dependencies_mdsvex: string;
 		COMMAND_MODE: string;
-		PNPM_SCRIPT_SRC_DIR: string;
 		CONDA_EXE: string;
-		npm_package_devDependencies_svelte_pdf: string;
+		PNPM_SCRIPT_SRC_DIR: string;
 		SSH_AUTH_SOCK: string;
-		npm_package_devDependencies_postcss: string;
-		npm_package_devDependencies_eslint: string;
+		npm_package_devDependencies_svelte_pdf: string;
 		__CF_USER_TEXT_ENCODING: string;
+		npm_package_devDependencies_eslint: string;
+		npm_package_devDependencies_postcss: string;
 		npm_execpath: string;
 		npm_package_devDependencies_svelte: string;
-		npm_config_frozen_lockfile: string;
 		_CE_CONDA: string;
+		npm_config_frozen_lockfile: string;
 		PATH: string;
-		_: string;
 		__CFBundleIdentifier: string;
-		npm_command: string;
-		npm_package_devDependencies_tailwindcss: string;
 		PWD: string;
-		npm_package_dependencies_mdsvex_relative_images: string;
+		npm_package_devDependencies_tailwindcss: string;
+		npm_command: string;
 		npm_package_scripts_preview: string;
+		npm_package_dependencies_mdsvex_relative_images: string;
 		npm_lifecycle_event: string;
-		npm_package_name: string;
 		LANG: string;
+		npm_package_name: string;
+		NODE_PATH: string;
 		npm_package_scripts_build: string;
-		XPC_FLAGS: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
-		npm_config_node_gyp: string;
+		XPC_FLAGS: string;
 		npm_package_devDependencies_eslint_config_prettier: string;
-		npm_package_devDependencies__sveltejs_adapter_auto: string;
-		npm_package_version: string;
-		XPC_SERVICE_NAME: string;
+		npm_config_node_gyp: string;
 		_CE_M: string;
+		XPC_SERVICE_NAME: string;
+		npm_package_version: string;
+		npm_package_devDependencies__sveltejs_adapter_auto: string;
 		npm_package_devDependencies_autoprefixer: string;
-		npm_package_type: string;
-		HOME: string;
 		SHLVL: string;
+		HOME: string;
+		npm_package_type: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		HOMEBREW_PREFIX: string;
-		npm_package_scripts_format: string;
-		LOGNAME: string;
 		CONDA_PYTHON_EXE: string;
+		LOGNAME: string;
+		npm_package_scripts_format: string;
 		npm_lifecycle_script: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		npm_config_user_agent: string;
-		GIT_ASKPASS: string;
-		VSCODE_GIT_ASKPASS_NODE: string;
-		HOMEBREW_CELLAR: string;
 		INFOPATH: string;
-		npm_node_execpath: string;
+		HOMEBREW_CELLAR: string;
+		VSCODE_GIT_ASKPASS_NODE: string;
+		GIT_ASKPASS: string;
 		COLORTERM: string;
+		npm_node_execpath: string;
 		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
-		[key: `${string}`]: string | undefined;
+		[key: string]: string | undefined;
 	}
 }
 
