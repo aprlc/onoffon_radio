@@ -13,7 +13,7 @@ const promptQ = [
   { question: "What have we lost in the overproduction of the digital? What has been erased from your Internet? Who is the curator, if not you?", quote:"How do people disappear in an age of total over-visibility?...most important things want to remain invisible. Love is invisible. War is invisible. Capital is invisible. - Hito Steyerl, How Not To Be Seen: A Fucking Didactic Educational Installation "   
    },
   { question: "What do you gather online? How do you gather online? What alternatives are we writing through digital acts of maintenance, repair, archiving, etc.?", quote: "Gathering is the tender and thoughtful collection of goods for your kin, and a moment for reunion, for celebration, and for introspection around those goods. - Mindy Seu, On Gathering" },
-  { question: "What does proximity look like on your Internet? Describe the shape of your Internet.", quote: "If artists have a role to play, perhaps it’s to put a little friction back into this seamless dystopia in hopes of a more intimate, communal, and thoughtful web. - Gary Zhexing Zhang, Reenvisioning the Internet"}
+  { question: "What does proximity look like on your Internet? Describe the shape of your Internet.", quote: "If artists have a role to play, perhaps it's to put a little friction back into this seamless dystopia in hopes of a more intimate, communal, and thoughtful web. - Gary Zhexing Zhang, Reenvisioning the Internet"}
 ];
 
   // Function to initialize the items array
@@ -31,15 +31,15 @@ const promptQ = [
 			<p class="text-sm font-serif">
 				To participate:
 			</p>
-			<p class="text-2xl mb-12">
+			<p class="text-2xl mb-4">
 				Read out the question. Share your thoughts. Take your time. <br>
 				The prompts are just a guide. Feel free to share anything you want.  
 			</p>
-			<p class="text-sm font-serif max-w-[56ch]">
-				Note: This session is being recorded and may be used by onoffon radio or Softer London for event documentation. The recording is stored locally on this Raspberry Pi and all recordings will be anonymous. 
+			<p class="text-sm font-serif max-w-[48ch]">
+				Note: This session is being recorded and may be used by onoffon radio or Softer London for event documentation. The recording is stored locally on this Raspberry Pi and will remain anonymous. 
 			</p>
 		</div>
-		<div class="fixed bottom-1/2 right-0 md:bottom-4 md:left-4 z-[50] w-32 h-32 md:w-40 md:h-40 lg:w-60 lg:h-60 rounded-full border border-cream inline-flex items-center justify-center bg-red text-white text-lg md:text-3xl">
+		<div class="fixed bottom-1/2 right-0 md:bottom-4 md:left-4 z-[50] w-32 h-32 lg:w-60 lg:h-60 rounded-full border border-cream inline-flex items-center justify-center bg-red text-white text-lg md:text-3xl">
 			<div class="animate-spin-slow">
 				ON AIR
 			</div>

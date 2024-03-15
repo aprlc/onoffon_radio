@@ -10,50 +10,54 @@
 	]
 </script>
 
-<div id="pageContainer">
-	<div id="logo">
-		<img src={Logo} alt="onoffon radio logo" />
-	</div>
+<div class="md:h-[90vh] flex flex-col md:flex-row gap-12 overflow-hidden">
+	<section class="w-full md:h-[90%] md:w-3/5 flex flex-col justify-between gap-8 md:overscroll-none">
+		<div id="logo" class="md:fixed md:bottom-4">
+			<img src={Logo} alt="onoffon radio logo" class="max-w-full md:max-w-[48vw]" />
+		</div>
 
-	<section class="about gothic">
-		<p>
-			<em>onoffon radio</em> is a handmade, online radio not bounded by location,
+		<p class="text-red mt-0 text-2xl md:text-4xl md:max-w-[48ch]">
+			onoffon radio is a handmade, online radio not bounded by location,
       audience, or contributors. Sometimes on, sometimes off, the radio holds space
       for discussion, casual publishing, knowledge sharing, audio-making, and sonic
       experimentation.
 		</p>
+
+		
+
+		<div id="radio" class="fixed bottom-4 md:right-4">
+			<audio controls preload="auto">
+				<source src="https://stream.radioo.space/stream" type="audio/mpeg" />
+				<!-- <source src="http://192.168.8.103:8000/stream" type="audio/mpeg" /> -->
+				Your browser does not support the audio tag.
+			</audio>
+		</div>
 	</section>
 
 	<!-- <AudioPlayer {src}/> -->
 
-  <section id="radio" class="audio-player">
-		<audio controls preload="auto">
-			<source src="https://stream.radioo.space/stream" type="audio/mpeg" />
-			<!-- <source src="http://192.168.8.103:8000/stream" type="audio/mpeg" /> -->
-			Your browser does not support the audio tag.
-		 </audio>
-	</section>
-
-	<section class="program">
-		<h4>Program</h4>
+	<section class="w-full pb-24 md:pb-0 md:w-2/5 md:overflow-hidden md:overflow-y-scroll">
+		<!-- <h4>Program</h4> -->
 		
-		<div class="posts">
+		<div class="flex flex-col gap-12 text-red md:h-[90%]">
 			{#each posts as post}
-				<div class="post-container">
-					<div class="grid-item">{post.metadata.date}</div>
-					<div class="grid-item">{post.metadata.time}</div>
-					<div class="grid-item">{post.metadata.title}</div>
-					<div class="grid-item">{post.metadata.type} ✶ {post.metadata.location}</div>
-					<div class="grid-item gothic">{post.metadata.desc}</div>
-				</div>
+				{#if post.metadata.hidden === false}
+					<div class="grid grid-cols-4 gap-4 font-serif text-xs border-t border-red">
+						<div class="col-start-1 p-1 border-l border-red">{post.metadata.date}</div>
+						<div class="col-start-2 p-1 border-x border-red">{post.metadata.time}</div>
+						<div class="col-start-3 p-1 col-span-2 border-r border-red">{post.metadata.title}</div>
+						<div class="col-start-2 row-start-2 col-span-3">{post.metadata.type} ✶ {post.metadata.location}</div>
+						<div class="col-start-2 row-start-3 col-span-3 font-sans">{post.metadata.desc}</div>
+					</div>
+				{/if}
 			{/each}
 		</div>
-<hr />
+<!-- <hr /> -->
 	</section>
 </div>
 
 
-<style>
+<!-- <style>
 	#pageContainer {
 		display: flex;
 		flex-direction: column;
@@ -133,17 +137,18 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 2fr;
 		grid-template-rows: 1fr 0.5fr auto;
-		border-top: #1e1e1e 1px solid;
+		border-top: #ff4e3c 1px solid;
+		/* border-radius: 20px; */
 	}
 
 	/* first grid item */
 	.post-container > :nth-child(1) {
-		border-left: 1px solid #1e1e1e;
+		border-left: 1px solid #ff4e3c;
 	}
 
 	/* first 3 grid items (show details) */
 	.post-container > :nth-child(-n + 3) {
-		border-right: 1px solid #1e1e1e;
+		border-right: 1px solid #ff4e3c;
 	}
 
 	/* last grid item (location) */
@@ -161,6 +166,7 @@
 
 	.grid-item {
 		padding: 1rem;
+		font-size: 0.8rem;
 	}
 
 	@media (max-width: 780px) {
@@ -176,14 +182,14 @@
 		
 		/* first 3 grid items (show details) */
 		.post-container > :nth-child(-n + 3) {
-			border-bottom: 1px solid #1e1e1e;
+			border-bottom: 1px solid #ff4e3c;
 		}
 
 		/* third grid item */
 		.post-container > :nth-child(3) {
 			grid-row: 2;
 			grid-column: 1 / span 2;
-			border-left: 1px solid #1e1e1e;
+			border-left: 1px solid #ff4e3c;
 		}
 
 		/* fourth grid item */
@@ -212,4 +218,4 @@
 			}
 		}
 	}
-</style>
+</style> -->
