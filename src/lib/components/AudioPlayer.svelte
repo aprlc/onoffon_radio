@@ -25,7 +25,7 @@
 
 <audio bind:this={player} loop>
 	<!-- <source src={activeSrc} type="audio/mpeg" /> -->
-	<source src="http://192.168.8.103:8000/stream" type="audio.mpeg">
+	<source src="http://192.168.8.103:8000/stream" type="audio/mpeg">
 </audio>
 
 <button on:click={togglePlay} class="bg-red text-cream font-sans h-[100px] w-[100px] border rounded-full">
